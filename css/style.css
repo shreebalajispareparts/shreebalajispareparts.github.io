@@ -42,6 +42,15 @@ html {
 
 }
 
+
+.font-size-50 {
+	font-size: 50px !important;
+}
+
+.padding-bottom {
+	padding-bottom: 0px;
+}
+
 *, *:before, *:after {
 
 	-webkit-box-sizing: border-box;
