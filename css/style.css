@@ -57,6 +57,33 @@ html {
 	font-size: medium;
 }
 
+.call-box {
+	border: 2px solid rgb(145, 145, 160);
+	background-color: whitesmoke;
+	opacity: 0.8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	height: 100%;
+}
+
+.whatsapp-box {
+	border: 2px solid rgb(145, 145, 160);
+	background-color: whitesmoke;
+	opacity: 0.8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	height: 100%;
+}
+
+.full-size {
+	height: 100%;
+	width: 100%;
+}
+
 .font-size-50 {
 	font-size: 50px !important;
 }
