@@ -190,6 +190,10 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 }
 
+ul {
+	list-style-type: none;
+}
+
 a {
 
 	text-decoration: none;
