@@ -422,6 +422,7 @@
                         section.className = "blog-content";
                         var img = document.createElement("img");
                         img.src = value;
+                        img.onclick = function() {showimage(value);};
                         img.className = "img-responsive";
                         var figure = document.createElement("figure");
                         figure.appendChild(img);

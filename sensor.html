@@ -18,7 +18,7 @@
 
         <title>Shree Balaji Spareparts</title>
 
-		<link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 
 
@@ -46,24 +46,210 @@
 
         <link href="css/effects/normalize.css" rel="stylesheet" type="text/css">
 
-        <!-- <link href="css/effects/component.css"  rel="stylesheet" type="text/css" > -->
+        <link href="css/effects/component.css"  rel="stylesheet" type="text/css" >
 
+        <style>
+            /* The Modal (background) */
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(226, 224, 224); /* Fallback color */
+            background-color: rgba(255, 255, 255, 0.9); /* Black w/ opacity */
+            }
+
+            /* Modal Content (image) */
+            .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+            }
+
+            /* Add Animation */
+            .modal-content, #caption {  
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+            }
+
+            @-webkit-keyframes zoom {
+            from {-webkit-transform:scale(0)} 
+            to {-webkit-transform:scale(1)}
+            }
+
+            @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+            }
+
+            /* The Close Button */
+            .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            height: 50px;
+            width: 50px;
+            color: black;
+            font-size: 70px;
+            font-weight: bold;
+            /* transition: 0.3s; */
+            }
+
+            .close:hover,
+            .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            }
+
+            /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+            }
+        </style>
 	</head>
     <body>
 
     
+        <div style="height: 100%; width: 100%;">
 
-    	<!-- header -->
+            <!-- header -->
 
-        	<header role="header">
+            <div style="height: 10vh; position: fixed; z-index: 200; top: 0; width: 100%; background: whitesmoke;">
 
-            	<div class="container">
+                <header role="header">
 
-                	<!-- logo -->
+                    <div class="container">
 
-                    	<h1>
+                        <!-- logo -->
 
-                        	<a href="index.html" title="Shree Balaji Spareparts"><img src="images/logo.png" title="Shree Balaji Spareparts" alt="Shree Balaji Spareparts"/></a>
+                            <h1>
+
+                                <a href="index.html" title="avana LLC"><img src="images/logo.png" title="avana LLC" alt="avana LLC"/></a>
+
+                            </h1>
+
+                            <div style="font-size: 18px; font-weight: 600; color: darkslategray;">
+                                SHREE BALAJI SPAREPARTS KOTKAPURA
+                            </div>
+
+                        <!-- logo -->
+
+                        <!-- nav -->
+
+                        <nav role="header-nav" class="navy">
+
+                            <ul>
+
+                                <li class="nav-active"><a href="index.html" title="Home">Home</a></li>
+
+                                <li><a href="about.html" title="About">About</a></li>
+
+                                <li><a href="compressor.html" title="Compressors">Compressors</a></li>
+
+                                <li><a href="cooling-coil.html" title="Cooling Coil">Cooling Coil</a></li>
+
+                                <li><a href="condenser.html" title="Condenser">Condenser</a></li>
+                                
+                                <li><a href="blower-motor.html" title="Blower Motor">Blower Motor</a></li>
+                                
+                                <li><a href="control-valve.html" title="Control Valve">Control Valve</a></li>
+
+                                <li><a href="expansion-valve.html" title="Expansion Valve">Expansion Valve</a></li>
+                                
+                                <li><a href="heater.html" title="Heater">Heater</a></li>
+
+                                <li><a href="cabin-filter.html" title="Cabin Filter">Cabin Filter</a></li>
+
+                                <li><a href="fan-motor.html" title="Compressors">Fan Motor</a></li>
+
+                                <li><a href="compressor-parts.html" title="Compressor Parts">Compressor Parts</a></li>
+
+                                <li><a href="sensor.html" title="Switch/ Sensor">Switch/ Sensor</a></li>
+
+                                <li><a href="misc.html" title="Misc">Misc</a></li>
+
+                                <li><a href="contact.html" title="Contact">Contact</a></li>
+
+                            </ul>
+
+                        </nav>
+
+                        <!-- nav -->
+
+                    </div>
+
+                </header>
+            </div>
+
+            <!-- header -->
+
+                <!-- main -->
+                <main role="main-inner-wrapper" class="container" style="margin-top: 7vh">
+
+                    
+
+                    <div class="row">
+
+                    
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+
+                            <article role="pge-title-content" class="blog-header padding-bottom">
+
+                                <header>
+
+                                    <h2><span class="font-size-50">AC Switch/ Sensor/ HP Switch</span></h2>
+
+                                </header>
+
+                            </article>
+
+                            <div style="width: 100%;padding-bottom: 20px;padding-top: 5px; display: flex;">
+                                <input type="text" id="search-text" style="border-radius: 10px; width: 80%; height: 30px; border: 2px solid gray;">
+                                <img src="images/cross-icon.png" style="width: 20%; height: 30px;width: 30px;padding-left: 5px;" onclick="clearText()">
+                            </div>
+                            <ul style="height: auto;" id="grid">
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </main>
+                <!-- main -->
+
+                <!-- footer -->
+
+                <footer role="footer">
+
+                    <!-- logo -->
+
+                        <h1>
+
+                            <a href="index.html" title="avana LLC"><img src="images/logo.png" title="avana LLC" alt="avana LLC"/></a>
 
                         </h1>
 
@@ -71,37 +257,17 @@
 
                     <!-- nav -->
 
-                    <nav role="header-nav" class="navy">
+                    <nav role="footer-nav">
 
                         <ul>
 
-                            <li><a href="index.html" title="Home">Home</a></li>
+                            <li><a href="index.html" title="Work">Work</a></li>
 
                             <li><a href="about.html" title="About">About</a></li>
 
                             <li><a href="compressor.html" title="Compressors">Compressors</a></li>
 
-                            <li><a href="cooling-coil.html" title="Cooling Oil">Cooling Coil</a></li>
-
-                            <li><a href="condenser.html" title="Condensor">Condensor</a></li>
-
                             <li><a href="blower-motor.html" title="Blower Motors">Blower Motors</a></li>
-
-                            <li><a href="control-valve.html" title="Control Valve">Control Valve</a></li>
-
-                            <li><a href="expansion-valve.html" title="Expansion Valve">Expansion Valve</a></li>
-
-                            <li><a href="heater.html" title="Heater">Heater</a></li>
-
-                            <li><a href="cabin-filter.html" title="Carbin Filter">Carbin Filter</a></li>
-
-                            <li><a href="fan-motor.html" title="Fan Motor">Fan Motor</a></li>
-
-                            <li><a href="compressor-parts.html" title="Compressor Parts">Compressor Parts</a></li>
-
-                            <li class="nav-active"><a href="sensor.html" title="Switch/Sensor">Switch/Sensor</a></li>
-
-                            <li><a href="misc.html" title="Misc">Misc</a></li>
 
                             <li><a href="contact.html" title="Contact">Contact</a></li>
 
@@ -111,119 +277,42 @@
 
                     <!-- nav -->
 
-                </div>
+                    <ul role="social-icons">
 
-            </header>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 
-        <!-- header -->
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 
-        <!-- main -->
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 
-        <main role="main-inner-wrapper" class="container">
+                        <li><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
 
-        	
-
-            <div class="row">
-
-            
-
-            	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-
-                	<article role="pge-title-content" class="blog-header padding-bottom">
-
-                    	<header>
-
-                        	<h2><span class="font-size-50">AC Switch/ Sensor/ HP Switch</span></h2>
-
-                        </header>
-
-                    </article>
-
-                    <ul class="grid-lod effect-2" id="grid">
                     </ul>
 
+                    <p class="copy-right">&copy; 2015  avana LLC.. All rights Resved</p>
+
+                </footer>
+                <div style="height: 8vh; position: fixed; bottom: 0;padding: 5px; width: 100%;">
+                    <div class="container full-size" style="display: flex;">
+                        <div class="call-box">
+                            <a href="tel:+916239444069" title="call"><img src="images/call-logo.jpeg" style="height: 50px; width: 50px;" title="call" alt="call"/></a>
+                        </div>
+                        <div class="whatsapp-box">
+                            <a href="https://wa.me/916239444069" title="whatsapp"><img src="images/whatsapp-logo.svg" style="height: 50px; width: 50px;color: green;" title="whatsapp" alt="whatsapp"/></a>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
+                <!-- footer -->
 
-        </main>
+        </div>
 
-    	<!-- main -->
-
-        <!-- footer -->
-
-        <footer style="margin-top: 390px;" role="footer">
-
-            <!-- logo -->
-
-                <h1>
-
-                    <a href="index.html" title="Shree Balaji Spareparts"><img src="images/logo.png" title="Shree Balaji Spareparts" alt="Shree Balaji Spareparts"/></a>
-
-                </h1>
-
-            <!-- logo -->
-
-            <!-- nav -->
-
-            <nav role="footer-nav">
-
-            	<ul>
-
-                    <li><a href="index.html" title="Home">Home</a></li>
-
-                    <li><a href="about.html" title="About">About</a></li>
-
-                    <li><a href="compressor.html" title="Compressors">Compressors</a></li>
-
-                    <li><a href="cooling-coil.html" title="Cooling Oil">Cooling Coil</a></li>
-
-                    <li><a href="condenser.html" title="Condensor">Condensor</a></li>
-
-                    <li><a href="blower-motor.html" title="Blower Motors">Blower Motors</a></li>
-
-                    <li><a href="control-valve.html" title="Control Valve">Control Valve</a></li>
-
-                    <li><a href="expansion-valve.html" title="Expansion Valve">Expansion Valve</a></li>
-
-                    <li><a href="heater.html" title="Heater">Heater</a></li>
-
-                    <li><a href="cabin-filter.html" title="Carbin Filter">Carbin Filter</a></li>
-
-                    <li><a href="fan-motor.html" title="Fan Motor">Fan Motor</a></li>
-
-                    <li><a href="compressor-parts.html" title="Compressor Parts">Compressor Parts</a></li>
-
-                    <li class="nav-active"><a href="sensor.html" title="Switch/Sensor">Switch/Sensor</a></li>
-
-                    <li><a href="misc.html" title="Misc">Misc</a></li>
-
-                    <li><a href="contact.html" title="Contact">Contact</a></li>
-
-                </ul>
-
-            </nav>
-
-            <!-- nav -->
-
-            <ul role="social-icons">
-
-            	<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
-
-            </ul>
-
-            <p class="copy-right">&copy; 2015  avana LLC.. All rights Resved</p>
-
-        </footer>
-
-        <!-- footer -->
-
+        <!-- The Modal -->
+        <div id="myModal" class="modal" style="margin-top: 10vh">
+            <span class="close" style="color: gray; opacity: 0.8;">&times;</span>
+            <img class="modal-content" id="img01" style="width: 150%;">
+            <div id="caption"></div>
+        </div>
     
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -258,42 +347,110 @@
 
     <script>
         var images = {
-                      "I-20 Ambient Sensor": "images/sensor/ambient_sensor_I20.jpg",
-                      "Direction Motor MHawk": "images/sensor/direction_motor_mhawk.jpg",
-                      "Bolero AC Switch": "images/sensor/switch_ac_bolero.jpg",
-                      "Bolero HP": "images/sensor/switch_bolero.jpg",
-                      "Ford HP": "images/sensor/switch_ford.jpg",
-                      "I-20/ Verna HP": "images/sensor/switch_I20_verna.jpg",
-                      "Indica Vista HP": "images/sensor/switch_indica_vista.jpg",
-                      "Innova HP": "images/sensor/switch_innova.jpg",
-                      "Maruti AC Switch": "images/sensor/switch_maruti.jpg",
-                      "Scoda T2 Switch": "images/sensor/switch_scoda_t2.jpg",
-                      "Scoda Switch": "images/sensor/switch_scoda.jpg",
-                      "Tavera Switch": "images/sensor/switch_tavera.jpg",
-                      "Zen Switch": "images/sensor/switch_zen.jpg",
-                      "Alto Thermostat": "images/sensor/thermostat_alto.jpg",
-                      "Creta Thermostat": "images/sensor/thermostat_creta.jpg",
-                      "I20 Thermostat": "images/sensor/thermostat_I20.jpg",
-                      "I20 Elite/ Verna Flutec Thermostat": "images/sensor/thermostat_I20elite_verna_flutec.jpg",
-                      "MHawk Thermostat": "images/sensor/thermostat_mhawk.jpg",
-                      "Universal Thermostat": "images/sensor/thermostat_universal.jpg",
-                      }
-        var ul = document.getElementById("grid");
-        for (const [key, value] of Object.entries(images)) {
-            var li = document.createElement("li");
-            var section = document.createElement("section");
-            section.className = "blog-content";
-            var img = document.createElement("img");
-            img.src = value;
-            img.className = "img-responsive";
-            var figure = document.createElement("figure");
-            figure.appendChild(img);
-            var article = document.createElement("article");
-            article.innerHTML = key;
-            section.appendChild(figure);
-            section.appendChild(article);
-            li.appendChild(section);
-            ul.appendChild(li);
+                    "I-20 Ambient Sensor": "images/sensor/ambient_sensor_I20.jpg",
+                    "Direction Motor MHawk": "images/sensor/direction_motor_mhawk.jpg",
+                    "Bolero AC Switch": "images/sensor/switch_ac_bolero.jpg",
+                    "Bolero HP": "images/sensor/switch_bolero.jpg",
+                    "Ford HP": "images/sensor/switch_ford.jpg",
+                    "I-20/ Verna HP": "images/sensor/switch_I20_verna.jpg",
+                    "Indica Vista HP": "images/sensor/switch_indica_vista.jpg",
+                    "Innova HP": "images/sensor/switch_innova.jpg",
+                    "Maruti AC Switch": "images/sensor/switch_maruti.jpg",
+                    "Scoda T2 Switch": "images/sensor/switch_scoda_t2.jpg",
+                    "Scoda Switch": "images/sensor/switch_scoda.jpg",
+                    "Tavera Switch": "images/sensor/switch_tavera.jpg",
+                    "Zen Switch": "images/sensor/switch_zen.jpg",
+                    "Alto Thermostat": "images/sensor/thermostat_alto.jpg",
+                    "Creta Thermostat": "images/sensor/thermostat_creta.jpg",
+                    "I20 Thermostat": "images/sensor/thermostat_I20.jpg",
+                    "I20 Elite/ Verna Flutec Thermostat": "images/sensor/thermostat_I20elite_verna_flutec.jpg",
+                    "MHawk Thermostat": "images/sensor/thermostat_mhawk.jpg",
+                    "Universal Thermostat": "images/sensor/thermostat_universal.jpg",
+                    }
+
+        function addContent() {
+            for (const [key, value] of Object.entries(images)) {
+                var li = document.createElement("li");
+                var section = document.createElement("section");
+                section.className = "blog-content";
+                var img = document.createElement("img");
+                img.src = value;
+                img.onclick = function() {showimage(value);};
+                img.className = "img-responsive";
+                var figure = document.createElement("figure");
+                figure.appendChild(img);
+                var article = document.createElement("article");
+                article.innerHTML = key.toUpperCase();
+                section.appendChild(figure);
+                section.appendChild(article);
+                li.appendChild(section);
+                document.getElementById("grid").appendChild(li);
+            }
+            document.getElementById("grid").style.height = "auto";
+        }
+        addContent();
+        
+        const input = document.querySelector('input');
+        input.addEventListener('input', searchText)
+
+        function removeContent() {
+            var grid = document.getElementById("grid");
+            while(grid.firstChild) {
+                console.log("removed", grid.childNodes[0]);
+                grid.removeChild(grid.firstChild);
+            }
+            grid.style.height = 'auto';
+            console.log("after removal", grid);
+        }
+
+        function searchText(e) {
+            if (e.target.value !== '') {
+                // remove inner content
+                removeContent();
+                const searchText = e.target.value.toLowerCase();
+                for (const [key, value] of Object.entries(images)) {
+                    if (value.search(searchText) !== -1) {
+                        console.log("found item");
+                        var li = document.createElement("li");
+                        var section = document.createElement("section");
+                        section.className = "blog-content";
+                        var img = document.createElement("img");
+                        img.src = value;
+                        img.onclick = function() {showimage(value);};
+                        img.className = "img-responsive";
+                        var figure = document.createElement("figure");
+                        figure.appendChild(img);
+                        var article = document.createElement("article");
+                        article.innerHTML = key.toUpperCase();
+                        section.appendChild(figure);
+                        section.appendChild(article);
+                        li.appendChild(section);
+                        document.getElementById("grid").appendChild(li);
+                    }
+                    document.getElementById("grid").style.height = 'auto';
+                }
+            } else {
+                removeContent();
+                addContent();
+            }
+        }
+
+        function clearText() {
+            document.getElementById("search-text").value = "";
+            removeContent();
+            addContent();
+        }
+
+        function showimage(src) {
+            var model = document.getElementById("myModal");
+            var modelimg = document.getElementById("img01");
+            model.style.display = "block";
+            modelimg.src = src;
+            console.log(`"background-image","url('${src}')"` + src);
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                model.style.display = "none";
+            }
         }
 
     </script>
