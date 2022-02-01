@@ -36,7 +36,7 @@ var options = {
 
 	center: new google.maps.LatLng(30.577553, 74.817123),
 
-	zoom: 16,
+	zoom: 19,
 
 	disableDefaultUI: true,	
 
