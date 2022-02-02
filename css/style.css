@@ -96,6 +96,14 @@ html {
 	padding-bottom: 0px !important;
 }
 
+.image-button {
+	right: 0;
+	position: absolute;
+	padding: 5px;
+	z-index: 2;
+	margin: 10px;
+}
+
 *, *:before, *:after {
 
 	-webkit-box-sizing: border-box;
