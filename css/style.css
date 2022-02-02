@@ -102,6 +102,8 @@ html {
 	padding: 5px;
 	z-index: 2;
 	margin: 10px;
+	border-radius: 8px;
+	border-color: lightgray;
 }
 
 *, *:before, *:after {
