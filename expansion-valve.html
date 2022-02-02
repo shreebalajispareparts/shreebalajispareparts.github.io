@@ -373,6 +373,11 @@
                 img.onclick = function() {showimage(value);};
                 img.className = "img-responsive";
                 var figure = document.createElement("figure");
+                var button = document.createElement("button");
+                button.className = "image-button";
+                button.innerHTML = "Get Price";
+                button.onclick = function() {sendMessage(key + " Expansion valve");};
+                figure.appendChild(button);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase() + " Expansion Valve";
@@ -414,6 +419,11 @@
                         img.onclick = function() {showimage(value);};
                         img.className = "img-responsive";
                         var figure = document.createElement("figure");
+                        var button = document.createElement("button");
+                        button.className = "image-button";
+                        button.innerHTML = "Get Price";
+                        button.onclick = function() {sendMessage(key + " Expansion valve");};
+                        figure.appendChild(button);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase() + " Expansion Valve";
@@ -446,6 +456,10 @@
             span.onclick = function() {
                 model.style.display = "none";
             }
+        }
+
+        function sendMessage(value) {
+            window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
         }
 
     </script>
