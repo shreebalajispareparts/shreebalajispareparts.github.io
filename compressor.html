@@ -428,11 +428,11 @@
                 var imgLink = document.createElement("i");
                 imgLink.className = "material-icons";
                 imgLink.innerHTML = "&#xe80d;";
-                linkButton.onclick = function() {navigator.share(navigator.share({
-                                            title: 'Shree Balaji Spareparts Kotkapura',
-                                            text: key,
-                                            url: window.location.href + "#" + encodeURIComponent(key),
-                                        }))};
+                linkButton.onclick = function() {navigator.share({
+                                                    title: 'Shree Balaji Spareparts Kotkapura',
+                                                    text: key,
+                                                    url: window.location.href + "#" + encodeURIComponent(key),
+                                                })};
                 linkButton.appendChild(imgLink);
                 var img = document.createElement("img");
                 img.src = value;
