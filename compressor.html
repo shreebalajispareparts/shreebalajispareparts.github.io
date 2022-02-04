@@ -48,6 +48,8 @@
 
         <link href="css/effects/component.css"  rel="stylesheet" type="text/css" >
 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <style>
             /* The Modal (background) */
             .modal {
@@ -420,11 +422,21 @@
                 button.className = "image-button";
                 button.innerHTML = "Get Price";
                 button.onclick = function() {sendMessage(key + " Compressor");};
+                // add button around link
+                var linkButton = document.createElement("button");
+                linkButton.className = "image-link"
+                var imgLink = document.createElement("i");
+                imgLink.className = "material-icons";
+                imgLink.innerHTML = "&#xe80d;";
+                linkButton.onclick = function() {navigator.clipboard.writeText(window.location.href + "#" + encodeURIComponent(key))};
+                linkButton.appendChild(imgLink);
                 var img = document.createElement("img");
                 img.src = value;
                 img.onclick = function() {showimage(value);};
                 img.className = "img-responsive";
                 var figure = document.createElement("figure");
+                figure.id = encodeURIComponent(key);
+                figure.appendChild(linkButton);
                 figure.appendChild(button);
                 figure.appendChild(img);
                 var article = document.createElement("article");
@@ -471,6 +483,7 @@
                         img.onclick = function() {showimage(value);};
                         img.className = "img-responsive";
                         var figure = document.createElement("figure");
+                        figure.id = encodeURIComponent(key);
                         figure.appendChild(button);
                         figure.appendChild(img);
                         var article = document.createElement("article");
