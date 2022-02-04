@@ -483,6 +483,7 @@
             model.style.display = "block";
             modelimg.src = src;
             console.log(`"background-image","url('${src}')"` + src);
+            model.addEventListener("dblclick", function() { model.style.display = "none"; });
             var span = document.getElementsByClassName("close")[0];
             span.onclick = function() {
                 model.style.display = "none";
