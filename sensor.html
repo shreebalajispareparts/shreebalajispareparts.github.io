@@ -48,6 +48,8 @@
 
         <link href="css/effects/component.css"  rel="stylesheet" type="text/css" >
 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
         <style>
             /* The Modal (background) */
             .modal {
@@ -420,6 +422,20 @@
                 button.className = "image-button";
                 button.innerHTML = "Get Price";
                 button.onclick = function() {sendMessage(key + " Sensor");};
+                // add button around link
+                var linkButton = document.createElement("button");
+                linkButton.className = "image-link"
+                var imgLink = document.createElement("i");
+                imgLink.className = "material-icons";
+                imgLink.innerHTML = "&#xe80d;";
+                linkButton.onclick = function() {navigator.share({
+                                                    title: 'Shree Balaji Spareparts Kotkapura',
+                                                    text: key,
+                                                    url: window.location.href + "#" + encodeURIComponent(key),
+                                                })};
+                linkButton.appendChild(imgLink);
+                figure.id = encodeURIComponent(key);
+                figure.appendChild(linkButton);
                 figure.appendChild(button);
                 figure.appendChild(img);
                 var article = document.createElement("article");
@@ -466,6 +482,20 @@
                         button.className = "image-button";
                         button.innerHTML = "Get Price";
                         button.onclick = function() {sendMessage(key + " Sensor");};
+                        // add button around link
+                        var linkButton = document.createElement("button");
+                        linkButton.className = "image-link"
+                        var imgLink = document.createElement("i");
+                        imgLink.className = "material-icons";
+                        imgLink.innerHTML = "&#xe80d;";
+                        linkButton.onclick = function() {navigator.share({
+                                                            title: 'Shree Balaji Spareparts Kotkapura',
+                                                            text: key,
+                                                            url: window.location.href + "#" + encodeURIComponent(key),
+                                                        })};
+                        linkButton.appendChild(imgLink);
+                        figure.id = encodeURIComponent(key);
+                        figure.appendChild(linkButton);
                         figure.appendChild(button);
                         figure.appendChild(img);
                         var article = document.createElement("article");
