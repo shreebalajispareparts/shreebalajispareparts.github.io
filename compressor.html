@@ -487,6 +487,19 @@
                         img.onclick = function() {showimage(value);};
                         img.className = "img-responsive";
                         var figure = document.createElement("figure");
+                        // add button around link
+                        var linkButton = document.createElement("button");
+                        linkButton.className = "image-link"
+                        var imgLink = document.createElement("i");
+                        imgLink.className = "material-icons";
+                        imgLink.innerHTML = "&#xe80d;";
+                        linkButton.onclick = function() {navigator.share({
+                                                            title: 'Shree Balaji Spareparts Kotkapura',
+                                                            text: key,
+                                                            url: window.location.href + "#" + encodeURIComponent(key),
+                                                        })};
+                        linkButton.appendChild(imgLink);
+                        figure.appendChild(linkButton);
                         figure.id = encodeURIComponent(key);
                         figure.appendChild(button);
                         figure.appendChild(img);

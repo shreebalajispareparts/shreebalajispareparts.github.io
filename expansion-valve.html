@@ -476,6 +476,20 @@
                         button.className = "image-button";
                         button.innerHTML = "Get Price";
                         button.onclick = function() {sendMessage(key + " Expansion valve");};
+                        // add button around link
+                        var linkButton = document.createElement("button");
+                        linkButton.className = "image-link"
+                        var imgLink = document.createElement("i");
+                        imgLink.className = "material-icons";
+                        imgLink.innerHTML = "&#xe80d;";
+                        linkButton.onclick = function() {navigator.share({
+                                                            title: 'Shree Balaji Spareparts Kotkapura',
+                                                            text: key,
+                                                            url: window.location.href + "#" + encodeURIComponent(key),
+                                                        })};
+                        linkButton.appendChild(imgLink);
+                        figure.id = encodeURIComponent(key);
+                        figure.appendChild(linkButton);
                         figure.appendChild(button);
                         figure.appendChild(img);
                         var article = document.createElement("article");
