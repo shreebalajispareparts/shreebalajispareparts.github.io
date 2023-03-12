@@ -425,7 +425,7 @@
                 
                 button.onclick = function() {
                                             sendMessage(key + " Compressor");
-                                            onClickButton(key + " Compressor");
+                                            onClickButton("Compressor_" + key);
                                         };
                 
                 // add button around link
@@ -489,7 +489,7 @@
                         button.innerHTML = "Get Price";
                         button.onclick = function() {
                                                         sendMessage(key + " Compressor");
-                                                        onClickButton(key + " Compressor");
+                                                        onClickButton("Compressor_" + key);
                                                     };
                         var img = document.createElement("img");
                         img.src = value;

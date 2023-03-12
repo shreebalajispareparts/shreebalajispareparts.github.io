@@ -412,7 +412,7 @@
                 button.innerHTML = "Get Price";
                 button.onclick = function() {
                                                 sendMessage(key + " Control valve");
-                                                onClickButton(key + " Control valve");
+                                                onClickButton("Control_valve_" + key);
                                             };
                 // add button around link
                 var linkButton = document.createElement("button");
@@ -489,7 +489,7 @@
                         figure.appendChild(linkButton);
                         button.onclick = function() {
                                                 sendMessage(key + " Control valve");
-                                                onClickButton(key + " Control valve");
+                                                onClickButton("Control_valve_" + key);
                                             };
                         figure.appendChild(button);
                         figure.appendChild(img);

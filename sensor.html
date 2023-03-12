@@ -424,7 +424,7 @@
                 button.innerHTML = "Get Price";
                 button.onclick = function() {
                                                 sendMessage(key + " Switch/Sensor");
-                                                onClickButton(key + " Switch/Sensor");
+                                                onClickButton("Switch/Sensor_" + key);
                                             };
                 // add button around link
                 var linkButton = document.createElement("button");
@@ -487,7 +487,7 @@
                         button.innerHTML = "Get Price";
                         button.onclick = function() {
                                                 sendMessage(key + " Switch/Sensor");
-                                                onClickButton(key + " Switch/Sensor");
+                                                onClickButton("Switch/Sensor_" + key);
                                             };
                         // add button around link
                         var linkButton = document.createElement("button");
