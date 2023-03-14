@@ -385,79 +385,17 @@
     </body>
 
     <script>
-        var images = {
-            "Micro Bus": "images/cooling-coil/cooling_coil_microbus.jpg",
-            "Superking 24V/ 12V": "images/cooling-coil/cooling_coil_superking_24V_12V.jpg",
-            "I-20": "images/cooling-coil/cooling_coil_I20.jpg",
-            "I-20 Elite": "images/cooling-coil/cooling_coil_I20_elite.jpg",
-            "I-20 Elite Imported": "images/cooling-coil/cooling_coil_I20_elite_imported.jpg",
-            "Verna Flutec": "images/cooling-coil/cooling_coil_verna_flutec.jpg",
-            "Verna Flutec 2019": "images/cooling-coil/cooling_coil_verna_flutec_2019.jpg",
-            "Verna": "images/cooling-coil/cooling_coil_verna.jpg",
-            "Creta": "images/cooling-coil/cooling_coil_creta.jpg",
-            "Creta Imported": "images/cooling-coil/cooling_coil_creta_imported.jpg",
-            "I-10 Grand": "images/cooling-coil/cooling_coil_I10_grand.jpg",
-            "I-10 Grand Imported": "images/cooling-coil/cooling_coil_I10_grand_imported.jpg",
-            "I-10": "images/cooling-coil/cooling_coil_I10.jpg",
-            "Eon": "images/cooling-coil/cooling_coil_eon.jpg",
-            "Accent": "images/cooling-coil/cooling_coil_accent.jpg",
-            "Elantra": "images/cooling-coil/cooling_coil_elantra.jpg",
-            "Swift": "images/cooling-coil/cooling_coil_swift.jpg",
-            "Swift New Model": "images/cooling-coil/cooling_coil_swift_new_model.jpg",
-            "Ritz": "images/cooling-coil/cooling_coil_ritz.jpg",
-            "Ritz Imported": "images/cooling-coil/cooling_coil_ritz_imported.jpg",
-            "Baleno": "images/cooling-coil/cooling_coil_baleno.jpg",
-            "Alto K-10": "images/cooling-coil/cooling_coil_alto_k10.jpg",
-            "Alto": "images/cooling-coil/cooling_coil_alto.jpg",
-            "XUV Front": "images/cooling-coil/cooling_coil_xuv_front.jpg",
-            "XUV Rear": "images/cooling-coil/cooling_coil_xuv_rear.jpg",
-            "Superking": "images/cooling-coil/cooling_coil_superking.jpg",
-            "Bolero": "images/cooling-coil/cooling_coil_bolero.jpg",
-            "Bolero Imported": "images/cooling-coil/cooling_coil_bolero_imported.jpg",
-            "Xylo": "images/cooling-coil/cooling_coil_xylo.jpg",
-            "Logan/ Duster": "images/cooling-coil/cooling_coil_logan_duster.jpg",
-            "Logan Imported": "images/cooling-coil/cooling_coil_logan_imported.jpg",
-            "Mhawk": "images/cooling-coil/cooling_coil_mhawk.jpg",
-            "MHawk Imported": "images/cooling-coil/cooling_coil_mhawk_imported.jpg",
-            "Qunto": "images/cooling-coil/cooling_coil_qunto.jpg",
-            "Innova Front": "images/cooling-coil/cooling_coil_innova_front.jpg",
-            "Innova Rear Paco": "images/cooling-coil/cooling_coil_innova_rear_paco.jpg",
-            "Innova Crysta Front": "images/cooling-coil/cooling_coil_innova_crysta_front.jpg",
-            "Innova Crysta Rear": "images/cooling-coil/cooling_coil_innova_crysta_rear.jpg",
-            "Etios": "images/cooling-coil/cooling_coil_etios.jpg",
-            "Etios Imported": "images/cooling-coil/cooling_coil_etios_imported.jpg",
-            "Corolla": "images/cooling-coil/cooling_coil_corolla.jpg",
-            "Figo": "images/cooling-coil/cooling_coil_figo.jpg",
-            "Figo Imported": "images/cooling-coil/cooling_coil_figo_imported.jpg",
-            "Fista": "images/cooling-coil/cooling_coil_fista.jpg",
-            "Fista Imported": "images/cooling-coil/cooling_coil_fista_imported.jpg",
-            "Ecosport": "images/cooling-coil/cooling_coil_ecosport.jpg",
-            "Endeavour Imported": "images/cooling-coil/cooling_coil_endeavour_imported.jpg",
-            "Ikon": "images/cooling-coil/cooling_coil_ikon.jpg",
-            "Beat New Model": "images/cooling-coil/cooling_coil_beat_new_model.jpg",
-            "Beat Old Model": "images/cooling-coil/cooling_coil_beat_old_model.jpg",
-            "Beat Imported": "images/cooling-coil/cooling_coil_beat_imported.jpg",
-            "Cruze": "images/cooling-coil/cooling_coil_cruze.jpg",
-            "Spark": "images/cooling-coil/cooling_coil_spark.jpg",
-            "Datsun": "images/cooling-coil/cooling_coil_datsun.jpg",
-            "Datsun T-2": "images/cooling-coil/cooling_coil_datsun_t2.jpg",
-            "Honda Amaze": "images/cooling-coil/cooling_coil_honda_amaze.jpg",
-            "Indica CS": "images/cooling-coil/cooling_coil_indica_cs.jpg",
-            "Indica Vista": "images/cooling-coil/cooling_coil_indica_vista.jpg",
-            "Indica": "images/cooling-coil/cooling_coil_indica.jpg",
-            "Indigo CS Imported": "images/cooling-coil/cooling_coil_indigo_cs_imported.jpg",
-            "Vista Imported": "images/cooling-coil/cooling_coil_vista_imported.jpg",
-            "Safari": "images/cooling-coil/cooling_coil_safari.jpg",
-            "Micra": "images/cooling-coil/cooling_coil_micra.jpg",
-            "Polo/ Vento": "images/cooling-coil/cooling_coil_polo_vento.jpg",
-            "Scoda Fabia": "images/cooling-coil/cooling_coil_scoda_fabia.jpg",
-            "Scoda Laura": "images/cooling-coil/cooling_coil_scoda_laura.jpg",
-            "Scoda Octavia 2017": "images/cooling-coil/cooling_coil_scoda_octavia_2017.jpg",
-            "Scoda Octavia": "images/cooling-coil/cooling_coil_scoda_octavia.jpg",
-        }
+
+        let docsDict; // declare a variable to store the key-value dictionary
+
+
+        fetch('http://localhost:5000/cooling_coil_sorted')
+            .then(response => response.json())
+            .then(docs => {
+                docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
 
         function addContent() {
-            for (const [key, value] of Object.entries(images)) {
+            for (const [key, value] of Object.entries(docsDict)) {
                 var li = document.createElement("li");
                 var section = document.createElement("section");
                 section.className = "blog-content";
@@ -471,7 +409,7 @@
                 button.innerHTML = "Get Price";
                 button.onclick = function() {
                                                 sendMessage(key + " Cooling Coil");
-                                                onClickButton("Cooling_Coil_" + key);
+                                                onClickButton(key, value);
                                             };
                 // add button around link
                 var linkButton = document.createElement("button");
@@ -518,7 +456,7 @@
                 // remove inner content
                 removeContent();
                 const searchText = e.target.value.toLowerCase();
-                for (const [key, value] of Object.entries(images)) {
+                for (const [key, value] of Object.entries(docsDict)) {
                     if (value.search(searchText) !== -1) {
                         console.log("found item");
                         var li = document.createElement("li");
@@ -534,7 +472,7 @@
                         button.innerHTML = "Get Price";
                         button.onclick = function() {
                                                         sendMessage(key + " Cooling Coil");
-                                                        onClickButton("Cooling_Coil_" + key);
+                                                        onClickButton(key, value);
                                                     };
                         // add button around link
                         var linkButton = document.createElement("button");
@@ -590,17 +528,101 @@
             window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
         }
 
-        function onClickButton(buttonName) {
+        function onClickButton(buttonName, location) {
     
-            const data = { "buttonName" : buttonName  };
+            const data = { "buttonName" : buttonName  , "location" : location};
             
             fetch('http://localhost:5000/clicks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
-                body: JSON.stringify({ "buttonName" : buttonName  })
+                body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
             }).then(response => response.json())
             .then(data => console.log(data))
         }
+        
+        displayDocuments(docsDict);
+                })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+            function displayDocuments(docsDict) {
+                // Display the documents in the DOM here
+                console.log(docsDict); // for example, log them to the console
+            }
+    
+        // var images = {
+        //     "Micro Bus": "images/cooling-coil/cooling_coil_microbus.jpg",
+        //     "Superking 24V/ 12V": "images/cooling-coil/cooling_coil_superking_24V_12V.jpg",
+        //     "I-20": "images/cooling-coil/cooling_coil_I20.jpg",
+        //     "I-20 Elite": "images/cooling-coil/cooling_coil_I20_elite.jpg",
+        //     "I-20 Elite Imported": "images/cooling-coil/cooling_coil_I20_elite_imported.jpg",
+        //     "Verna Flutec": "images/cooling-coil/cooling_coil_verna_flutec.jpg",
+        //     "Verna Flutec 2019": "images/cooling-coil/cooling_coil_verna_flutec_2019.jpg",
+        //     "Verna": "images/cooling-coil/cooling_coil_verna.jpg",
+        //     "Creta": "images/cooling-coil/cooling_coil_creta.jpg",
+        //     "Creta Imported": "images/cooling-coil/cooling_coil_creta_imported.jpg",
+        //     "I-10 Grand": "images/cooling-coil/cooling_coil_I10_grand.jpg",
+        //     "I-10 Grand Imported": "images/cooling-coil/cooling_coil_I10_grand_imported.jpg",
+        //     "I-10": "images/cooling-coil/cooling_coil_I10.jpg",
+        //     "Eon": "images/cooling-coil/cooling_coil_eon.jpg",
+        //     "Accent": "images/cooling-coil/cooling_coil_accent.jpg",
+        //     "Elantra": "images/cooling-coil/cooling_coil_elantra.jpg",
+        //     "Swift": "images/cooling-coil/cooling_coil_swift.jpg",
+        //     "Swift New Model": "images/cooling-coil/cooling_coil_swift_new_model.jpg",
+        //     "Ritz": "images/cooling-coil/cooling_coil_ritz.jpg",
+        //     "Ritz Imported": "images/cooling-coil/cooling_coil_ritz_imported.jpg",
+        //     "Baleno": "images/cooling-coil/cooling_coil_baleno.jpg",
+        //     "Alto K-10": "images/cooling-coil/cooling_coil_alto_k10.jpg",
+        //     "Alto": "images/cooling-coil/cooling_coil_alto.jpg",
+        //     "XUV Front": "images/cooling-coil/cooling_coil_xuv_front.jpg",
+        //     "XUV Rear": "images/cooling-coil/cooling_coil_xuv_rear.jpg",
+        //     "Superking": "images/cooling-coil/cooling_coil_superking.jpg",
+        //     "Bolero": "images/cooling-coil/cooling_coil_bolero.jpg",
+        //     "Bolero Imported": "images/cooling-coil/cooling_coil_bolero_imported.jpg",
+        //     "Xylo": "images/cooling-coil/cooling_coil_xylo.jpg",
+        //     "Logan/ Duster": "images/cooling-coil/cooling_coil_logan_duster.jpg",
+        //     "Logan Imported": "images/cooling-coil/cooling_coil_logan_imported.jpg",
+        //     "Mhawk": "images/cooling-coil/cooling_coil_mhawk.jpg",
+        //     "MHawk Imported": "images/cooling-coil/cooling_coil_mhawk_imported.jpg",
+        //     "Qunto": "images/cooling-coil/cooling_coil_qunto.jpg",
+        //     "Innova Front": "images/cooling-coil/cooling_coil_innova_front.jpg",
+        //     "Innova Rear Paco": "images/cooling-coil/cooling_coil_innova_rear_paco.jpg",
+        //     "Innova Crysta Front": "images/cooling-coil/cooling_coil_innova_crysta_front.jpg",
+        //     "Innova Crysta Rear": "images/cooling-coil/cooling_coil_innova_crysta_rear.jpg",
+        //     "Etios": "images/cooling-coil/cooling_coil_etios.jpg",
+        //     "Etios Imported": "images/cooling-coil/cooling_coil_etios_imported.jpg",
+        //     "Corolla": "images/cooling-coil/cooling_coil_corolla.jpg",
+        //     "Figo": "images/cooling-coil/cooling_coil_figo.jpg",
+        //     "Figo Imported": "images/cooling-coil/cooling_coil_figo_imported.jpg",
+        //     "Fista": "images/cooling-coil/cooling_coil_fista.jpg",
+        //     "Fista Imported": "images/cooling-coil/cooling_coil_fista_imported.jpg",
+        //     "Ecosport": "images/cooling-coil/cooling_coil_ecosport.jpg",
+        //     "Endeavour Imported": "images/cooling-coil/cooling_coil_endeavour_imported.jpg",
+        //     "Ikon": "images/cooling-coil/cooling_coil_ikon.jpg",
+        //     "Beat New Model": "images/cooling-coil/cooling_coil_beat_new_model.jpg",
+        //     "Beat Old Model": "images/cooling-coil/cooling_coil_beat_old_model.jpg",
+        //     "Beat Imported": "images/cooling-coil/cooling_coil_beat_imported.jpg",
+        //     "Cruze": "images/cooling-coil/cooling_coil_cruze.jpg",
+        //     "Spark": "images/cooling-coil/cooling_coil_spark.jpg",
+        //     "Datsun": "images/cooling-coil/cooling_coil_datsun.jpg",
+        //     "Datsun T-2": "images/cooling-coil/cooling_coil_datsun_t2.jpg",
+        //     "Honda Amaze": "images/cooling-coil/cooling_coil_honda_amaze.jpg",
+        //     "Indica CS": "images/cooling-coil/cooling_coil_indica_cs.jpg",
+        //     "Indica Vista": "images/cooling-coil/cooling_coil_indica_vista.jpg",
+        //     "Indica": "images/cooling-coil/cooling_coil_indica.jpg",
+        //     "Indigo CS Imported": "images/cooling-coil/cooling_coil_indigo_cs_imported.jpg",
+        //     "Vista Imported": "images/cooling-coil/cooling_coil_vista_imported.jpg",
+        //     "Safari": "images/cooling-coil/cooling_coil_safari.jpg",
+        //     "Micra": "images/cooling-coil/cooling_coil_micra.jpg",
+        //     "Polo/ Vento": "images/cooling-coil/cooling_coil_polo_vento.jpg",
+        //     "Scoda Fabia": "images/cooling-coil/cooling_coil_scoda_fabia.jpg",
+        //     "Scoda Laura": "images/cooling-coil/cooling_coil_scoda_laura.jpg",
+        //     "Scoda Octavia 2017": "images/cooling-coil/cooling_coil_scoda_octavia_2017.jpg",
+        //     "Scoda Octavia": "images/cooling-coil/cooling_coil_scoda_octavia.jpg",
+        // }
+            
+        
 
     </script>
 

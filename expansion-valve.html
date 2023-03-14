@@ -386,25 +386,17 @@
     </body>
 
     <script>
-        var images = {
-                    "Swift/ Innova/ Alto": "images/expansion-valve/expansion_swift_innova_alto.jpg",
-                    "I-20": "images/expansion-valve/expansion_I20.jpg",
-                    "Ritz": "images/expansion-valve/expansion_ritz.jpg",
-                    "Etios": "images/expansion-valve/expansion_etios.jpg",
-                    "Flare": "images/expansion-valve/expansion_flare.jpg",
-                    "R134/ R12": "images/expansion-valve/expansion_r134_r12.jpg",
-                    "Tempo Traveller": "images/expansion-valve/expansion_tempo_traveller.jpg",
-                    "MHawk": "images/expansion-valve/expansion_mhawk.jpg",
-                    "Scoda Octavia": "images/expansion-valve/expansion_scoda_octavia.jpg",
-                    "Polo/ Vento": "images/expansion-valve/expansion_polo_vento.jpg",
-                    "Accent": "images/expansion-valve/expansion_accent.jpg",
-                    "Indica Behr": "images/expansion-valve/expansion_indica_behr.jpg",
-                    "Indica Vista": "images/expansion-valve/expansion_indica_vista.jpg",
-                    "Optra": "images/expansion-valve/expansion_optra.jpg",
-                    }
 
+        let docsDict; // declare a variable to store the key-value dictionary
+
+
+            fetch('http://localhost:5000/expansion_valve_sorted')
+            .then(response => response.json())
+            .then(docs => {
+                docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
+                
         function addContent() {
-            for (const [key, value] of Object.entries(images)) {
+            for (const [key, value] of Object.entries(docsDict)) {
                 var li = document.createElement("li");
                 var section = document.createElement("section");
                 section.className = "blog-content";
@@ -418,7 +410,7 @@
                 button.innerHTML = "Get Price";
                 button.onclick = function() {   
                                                 sendMessage(key + " Expansion valve");
-                                                onClickButton("Expansion_valve_" + key);
+                                                onClickButton(key, value);
                                             };
                 // add button around link
                 var linkButton = document.createElement("button");
@@ -465,7 +457,7 @@
                 // remove inner content
                 removeContent();
                 const searchText = e.target.value.toLowerCase();
-                for (const [key, value] of Object.entries(images)) {
+                for (const [key, value] of Object.entries(docsDict)) {
                     if (value.search(searchText) !== -1) {
                         console.log("found item");
                         var li = document.createElement("li");
@@ -481,7 +473,7 @@
                         button.innerHTML = "Get Price";
                         button.onclick = function() {   
                                                 sendMessage(key + " Expansion valve");
-                                                onClickButton("Expansion_valve_" + key);
+                                                onClickButton(key, value);
                                             };
                         // add button around link
                         var linkButton = document.createElement("button");
@@ -537,18 +529,47 @@
             window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
         }
 
-        function onClickButton(buttonName) {
-    
-            const data = { "buttonName" : buttonName  };
+        function onClickButton(buttonName, location) {
+            
+            const data = { "buttonName" : buttonName  , "location" : location};
             
             fetch('http://localhost:5000/clicks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
-                body: JSON.stringify({ "buttonName" : buttonName  })
+                body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
             }).then(response => response.json())
             .then(data => console.log(data))
         }
 
+            displayDocuments(docsDict);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+        function displayDocuments(docsDict) {
+            // Display the documents in the DOM here
+            console.log(docsDict); // for example, log them to the console
+        }
+
+        // var images = {
+        //             "Swift/ Innova/ Alto": "images/expansion-valve/expansion_swift_innova_alto.jpg",
+        //             "I-20": "images/expansion-valve/expansion_I20.jpg",
+        //             "Ritz": "images/expansion-valve/expansion_ritz.jpg",
+        //             "Etios": "images/expansion-valve/expansion_etios.jpg",
+        //             "Flare": "images/expansion-valve/expansion_flare.jpg",
+        //             "R134/ R12": "images/expansion-valve/expansion_r134_r12.jpg",
+        //             "Tempo Traveller": "images/expansion-valve/expansion_tempo_traveller.jpg",
+        //             "MHawk": "images/expansion-valve/expansion_mhawk.jpg",
+        //             "Scoda Octavia": "images/expansion-valve/expansion_scoda_octavia.jpg",
+        //             "Polo/ Vento": "images/expansion-valve/expansion_polo_vento.jpg",
+        //             "Accent": "images/expansion-valve/expansion_accent.jpg",
+        //             "Indica Behr": "images/expansion-valve/expansion_indica_behr.jpg",
+        //             "Indica Vista": "images/expansion-valve/expansion_indica_vista.jpg",
+        //             "Optra": "images/expansion-valve/expansion_optra.jpg",
+        //             }
+
+        
     </script>
 
 </html>
