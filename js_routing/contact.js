@@ -1,4 +1,4 @@
-fetch('http://localhost:5000/visits/contact.html')
+fetch('http://100.25.143.135:5000visits/contact.html')
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.error(error));
