@@ -534,7 +534,7 @@
     
             const data = { "buttonName" : buttonName  };
             
-            fetch('http://localhost:5000/clicks', {
+            fetch('http://100.25.143.135:5000/clicks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
                 body: JSON.stringify({ "buttonName" : buttonName  })
