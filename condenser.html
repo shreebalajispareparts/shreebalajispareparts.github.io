@@ -389,7 +389,7 @@
         let docsDict; // declare a variable to store the key-value dictionary
 
 
-        fetch('https://100.25.143.135:5000/condenser_sorted')
+        fetch('https://ec2-52-90-31-169.compute-1.amazonaws.com:5000/condenser_sorted')
             .then(response => response.json())
             .then(docs => {
                 docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
@@ -532,7 +532,7 @@
     
             const data = { "buttonName" : buttonName , "location" : location };
     
-            fetch('https://100.25.143.135:5000/clicks', {
+            fetch('https://ec2-52-90-31-169.compute-1.amazonaws.com:5000/clicks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
                 body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
@@ -544,6 +544,171 @@
         })
         .catch(error => {
             console.error('Error:', error);
+            if(error){
+                var images = {
+                      "alto 800": "images/condenser/condenser_alto_800.jpg",
+                      "alto k10 imported": "images/condenser/condenser_alto_k10_imported.jpg",
+                      "alto k10 subros": "images/condenser/condenser_alto_k10_subros.jpg",
+                      "alto subros": "images/condenser/condenser_alto.jpg",
+                      "bolero new model": "images/condenser/condenser_bolero_new_model.jpg",
+                      "bolero old model": "images/condenser/condenser_bolero_old_model.jpg",
+                      "bolero": "images/condenser/condenser_bolero.jpg",
+                      "creta": "images/condenser/condenser_creta.jpg",
+                      "duster": "images/condenser/condenser_duster.jpg",
+                      "eccovan": "images/condenser/condenser_eccovan.jpg",
+                      "endeavour": "images/condenser/condenser_endeavour.jpg",
+                      "etios": "images/condenser/condenser_etios.jpg",
+                      "honda amaze": "images/condenser/condenser_honda_amaze.jpg",
+                      "honda city 1": "images/condenser/condenser_honda_city_1.jpg",
+                      "i-20 imported": "images/condenser/condenser_i20_imported.jpg",
+                      "i-20/ verna flutec dsl pvl ": "images/condenser/condenser_i20_verna_flutec_dsl_pvl.jpg",
+                      "i-20/ verna flutec ptl pvl": "images/condenser/condenser_i20_verna_flutec_ptl.jpg",
+                      "indica": "images/condenser/condenser_indica.jpg",
+                      "innova new model": "images/condenser/condenser_innova_new_model.jpg",
+                      "innova": "images/condenser/condenser_innova.jpg",
+                      "logan behr": "images/condenser/condenser_logan_behr.jpg",
+                      "polo/ vento behr": "images/condenser/condenser_polo_vento_behr.jpg",
+                      "polo /vento /rapid/ fabia": "images/condenser/condenser_polo_vento_rapid_fabia.jpg",
+                      "ritz": "images/condenser/condenser_ritz.jpg",
+                      "scorpio old model": "images/condenser/condenser_scorpio_old_model.jpg",
+                      "swift new model": "images/condenser/condenser_swift_new_model.jpg",
+                      "swift old model": "images/condenser/condenser_swift_old_model.jpg",
+                      "verna imported": "images/condenser/condenser_verna_imported.jpg",
+                      "vista quatrajet behr": "images/condenser/condenser_vista_quatrajet_behr.jpg",
+                      "xuv": "images/condenser/condenser_xuv.jpg"
+                      }
+                      function addContent() {
+            for (const [key, value] of Object.entries(images)) {
+                var li = document.createElement("li");
+                var section = document.createElement("section");
+                section.className = "blog-content";
+                var img = document.createElement("img");
+                img.src = value;
+                img.onclick = function() {showimage(value);};
+                img.className = "img-responsive";
+                var figure = document.createElement("figure");
+                var button = document.createElement("button");
+                button.className = "image-button";
+                button.innerHTML = "Get Price";
+                button.onclick = function() {
+                                                sendMessage(key + " Condenser");
+                                            };
+                // add button around link
+                var linkButton = document.createElement("button");
+                linkButton.className = "image-link"
+                var imgLink = document.createElement("i");
+                imgLink.className = "material-icons";
+                imgLink.innerHTML = "&#xe80d;";
+                linkButton.onclick = function() {navigator.share({
+                                                    title: 'Shree Balaji Spareparts Kotkapura',
+                                                    text: key,
+                                                    url: window.location.href + "#" + encodeURIComponent(key),
+                                                })};
+                linkButton.appendChild(imgLink);
+                figure.id = encodeURIComponent(key);
+                figure.appendChild(linkButton);
+                figure.appendChild(button);
+                figure.appendChild(img);
+                var article = document.createElement("article");
+                article.innerHTML = key.toUpperCase() + " Condenser";
+                section.appendChild(figure);
+                section.appendChild(article);
+                li.appendChild(section);
+                document.getElementById("grid").appendChild(li);
+            }
+            document.getElementById("grid").style.height = "auto";
+        }
+        addContent();
+        
+        const input = document.querySelector('input');
+        input.addEventListener('input', searchText)
+
+        function removeContent() {
+            var grid = document.getElementById("grid");
+            while(grid.firstChild) {
+                console.log("removed", grid.childNodes[0]);
+                grid.removeChild(grid.firstChild);
+            }
+            grid.style.height = 'auto';
+            console.log("after removal", grid);
+        }
+
+        function searchText(e) {
+            if (e.target.value !== '') {
+                // remove inner content
+                removeContent();
+                const searchText = e.target.value.toLowerCase();
+                for (const [key, value] of Object.entries(images)) {
+                    if (value.search(searchText) !== -1) {
+                        console.log("found item");
+                        var li = document.createElement("li");
+                        var section = document.createElement("section");
+                        section.className = "blog-content";
+                        var img = document.createElement("img");
+                        img.src = value;
+                        img.onclick = function() {showimage(value);};
+                        img.className = "img-responsive";
+                        var figure = document.createElement("figure");
+                        var button = document.createElement("button");
+                        button.className = "image-button";
+                        button.innerHTML = "Get Price";
+                        button.onclick = function() {
+                                                        sendMessage(key + " Condenser");
+                                                    };
+                        // add button around link
+                        var linkButton = document.createElement("button");
+                        linkButton.className = "image-link"
+                        var imgLink = document.createElement("i");
+                        imgLink.className = "material-icons";
+                        imgLink.innerHTML = "&#xe80d;";
+                        linkButton.onclick = function() {navigator.share({
+                                                            title: 'Shree Balaji Spareparts Kotkapura',
+                                                            text: key,
+                                                            url: window.location.href + "#" + encodeURIComponent(key),
+                                                        })};
+                        linkButton.appendChild(imgLink);
+                        figure.id = encodeURIComponent(key);
+                        figure.appendChild(linkButton);
+                        figure.appendChild(button);
+                        figure.appendChild(img);
+                        var article = document.createElement("article");
+                        article.innerHTML = key.toUpperCase() + " Condenser";
+                        section.appendChild(figure);
+                        section.appendChild(article);
+                        li.appendChild(section);
+                        document.getElementById("grid").appendChild(li);
+                    }
+                    document.getElementById("grid").style.height = 'auto';
+                }
+            } else {
+                removeContent();
+                addContent();
+            }
+        }
+
+        function clearText() {
+            document.getElementById("search-text").value = "";
+            removeContent();
+            addContent();
+        }
+
+        function showimage(src) {
+            var model = document.getElementById("myModal");
+            var modelimg = document.getElementById("img01");
+            model.style.display = "block";
+            modelimg.src = src;
+            model.addEventListener("dblclick", function() { model.style.display = "none"; });
+            console.log(`"background-image","url('${src}')"` + src);
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                model.style.display = "none";
+            }
+        }
+
+        function sendMessage(value) {
+            window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
+        }
+            }
         });
 
         function displayDocuments(docsDict) {

@@ -390,7 +390,7 @@
         let docsDict; // declare a variable to store the key-value dictionary
 
 
-            fetch('https://100.25.143.135:5000/heaters_sorted')
+            fetch('https://ec2-52-90-31-169.compute-1.amazonaws.com:5000/heaters_sorted')
             .then(response => response.json())
             .then(docs => {
                 docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
@@ -533,7 +533,7 @@
     
             const data = { "buttonName" : buttonName  , "location" : location};
             
-            fetch('https://100.25.143.135:5000/clicks', {
+            fetch('https://ec2-52-90-31-169.compute-1.amazonaws.com:5000/clicks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
                 body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
@@ -546,6 +546,154 @@
         })
         .catch(error => {
             console.error('Error:', error);
+            if(error){
+                var images = {
+                    "Swift": "images/heater/heater_swift.jpg",
+                    "Swift New Model": "images/heater/heater_swift_new_model.jpg",
+                    "Universal": "images/heater/heater_universal.jpg",
+                    "Alto/ Wagnor": "images/heater/heater_alto_wagnor.jpg",
+                    "Alto K-10": "images/heater/heater_alto_k10.jpg",
+                    "Bolero Old Model": "images/heater/heater_bolero_old_model.jpg",
+                    "Bolero New Model": "images/heater/heater_bolero_new_model.jpg",
+                    "I-20 Elite": "images/heater/heater_i20_elite.jpg",
+                    "I-20": "images/heater/heater_i20.jpg",
+                    "Verna Flutec": "images/heater/heater_verna_flutec.jpg",
+                    "Innova/ Fortuner": "images/heater/heater_innova_fortuner.jpg",
+                    "Ritz": "images/heater/heater_ritz.jpg",
+                    "Wagnor K-10": "images/heater/heater_wagnor_k10.jpg",
+                    }
+                    function addContent() {
+            for (const [key, value] of Object.entries(images)) {
+                var li = document.createElement("li");
+                var section = document.createElement("section");
+                section.className = "blog-content";
+                var img = document.createElement("img");
+                img.src = value;
+                img.onclick = function() {showimage(value);};
+                img.className = "img-responsive";
+                var figure = document.createElement("figure");
+                var button = document.createElement("button");
+                button.className = "image-button";
+                button.innerHTML = "Get Price";
+                button.onclick = function() {
+                                                sendMessage(key + " Heater");
+                                            };
+                // add button around link
+                var linkButton = document.createElement("button");
+                linkButton.className = "image-link"
+                var imgLink = document.createElement("i");
+                imgLink.className = "material-icons";
+                imgLink.innerHTML = "&#xe80d;";
+                linkButton.onclick = function() {navigator.share({
+                                                    title: 'Shree Balaji Spareparts Kotkapura',
+                                                    text: key,
+                                                    url: window.location.href + "#" + encodeURIComponent(key),
+                                                })};
+                linkButton.appendChild(imgLink);
+                figure.id = encodeURIComponent(key);
+                figure.appendChild(linkButton);
+                figure.appendChild(button);
+                figure.appendChild(img);
+                var article = document.createElement("article");
+                article.innerHTML = key.toUpperCase() + " Heater";
+                section.appendChild(figure);
+                section.appendChild(article);
+                li.appendChild(section);
+                document.getElementById("grid").appendChild(li);
+            }
+            document.getElementById("grid").style.height = "auto";
+        }
+        addContent();
+        
+        const input = document.querySelector('input');
+        input.addEventListener('input', searchText)
+
+        function removeContent() {
+            var grid = document.getElementById("grid");
+            while(grid.firstChild) {
+                console.log("removed", grid.childNodes[0]);
+                grid.removeChild(grid.firstChild);
+            }
+            grid.style.height = 'auto';
+            console.log("after removal", grid);
+        }
+
+        function searchText(e) {
+            if (e.target.value !== '') {
+                // remove inner content
+                removeContent();
+                const searchText = e.target.value.toLowerCase();
+                for (const [key, value] of Object.entries(images)) {
+                    if (value.search(searchText) !== -1) {
+                        console.log("found item");
+                        var li = document.createElement("li");
+                        var section = document.createElement("section");
+                        section.className = "blog-content";
+                        var img = document.createElement("img");
+                        img.src = value;
+                        img.onclick = function() {showimage(value);};
+                        img.className = "img-responsive";
+                        var figure = document.createElement("figure");
+                        var button = document.createElement("button");
+                        button.className = "image-button";
+                        button.innerHTML = "Get Price";
+                        button.onclick = function() {
+                                                sendMessage(key + " Heater");
+                                            };
+                        // add button around link
+                        var linkButton = document.createElement("button");
+                        linkButton.className = "image-link"
+                        var imgLink = document.createElement("i");
+                        imgLink.className = "material-icons";
+                        imgLink.innerHTML = "&#xe80d;";
+                        linkButton.onclick = function() {navigator.share({
+                                                            title: 'Shree Balaji Spareparts Kotkapura',
+                                                            text: key,
+                                                            url: window.location.href + "#" + encodeURIComponent(key),
+                                                        })};
+                        linkButton.appendChild(imgLink);
+                        figure.id = encodeURIComponent(key);
+                        figure.appendChild(linkButton);
+                        figure.appendChild(button);
+                        figure.appendChild(img);
+                        var article = document.createElement("article");
+                        article.innerHTML = key.toUpperCase() + " Heater";
+                        section.appendChild(figure);
+                        section.appendChild(article);
+                        li.appendChild(section);
+                        document.getElementById("grid").appendChild(li);
+                    }
+                    document.getElementById("grid").style.height = 'auto';
+                }
+            } else {
+                removeContent();
+                addContent();
+            }
+        }
+
+        function clearText() {
+            document.getElementById("search-text").value = "";
+            removeContent();
+            addContent();
+        }
+
+        function showimage(src) {
+            var model = document.getElementById("myModal");
+            var modelimg = document.getElementById("img01");
+            model.style.display = "block";
+            modelimg.src = src;
+            console.log(`"background-image","url('${src}')"` + src);
+            model.addEventListener("dblclick", function() { model.style.display = "none"; });
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                model.style.display = "none";
+            }
+        }
+
+        function sendMessage(value) {
+            window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
+        }
+            }
         });
 
         function displayDocuments(docsDict) {
