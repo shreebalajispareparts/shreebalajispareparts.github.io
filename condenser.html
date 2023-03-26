@@ -391,7 +391,7 @@
         let docsDict; // declare a variable to store the key-value dictionary
 
 
-        fetch('https://app.shreebalajispareparts.com//condenser_sorted')
+        fetch('https://app.shreebalajispareparts.com/condenser_sorted')
             .then(response => response.json())
             .then(docs => {
                 docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
@@ -550,7 +550,7 @@
     
             const data = { "buttonName" : buttonName , "location" : location };
     
-            fetch('https://app.shreebalajispareparts.com//clicks', {
+            fetch('https://app.shreebalajispareparts.com/clicks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
                 body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
