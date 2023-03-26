@@ -353,6 +353,8 @@
             <img class="modal-content" id="img01" style="width: 150%;">
             <div id="caption"></div>
         </div>
+
+        <script src="js/cart.js" type="text/javascript"></script>
         
         <script src="js_routing/sensor.js" type="text/javascript"></script>
 
@@ -390,7 +392,7 @@
         let docsDict; // declare a variable to store the key-value dictionary
 
 
-        fetch('https://ec2-52-90-31-169.compute-1.amazonaws.com:5000/sensor_sorted')
+        fetch('https://app.shreebalajispareparts.com/sensor_sorted')
             .then(response => response.json())
             .then(docs => {
                 docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
@@ -412,6 +414,13 @@
                                                 sendMessage(key + " Switch/Sensor");
                                                 onClickButton(key, value);
                                             };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                                            onClickButton(key, value);
+                };
                 // add button around link
                 var linkButton = document.createElement("button");
                 linkButton.className = "image-link"
@@ -427,6 +436,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase();
@@ -475,6 +485,13 @@
                                                 sendMessage(key + " Switch/Sensor");
                                                 onClickButton(key, value);
                                             };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                                                    onClickButton(key, value);
+                        };
                         // add button around link
                         var linkButton = document.createElement("button");
                         linkButton.className = "image-link"
@@ -490,6 +507,7 @@
                         figure.id = encodeURIComponent(key);
                         figure.appendChild(linkButton);
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase();
@@ -533,7 +551,7 @@
     
             const data = { "buttonName" : buttonName  , "location" : location};
             
-            fetch('https://ec2-52-90-31-169.compute-1.amazonaws.com:5000/clicks', {
+            fetch('https://app.shreebalajispareparts.com/clicks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
                 body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
@@ -583,6 +601,12 @@
                 button.onclick = function() {
                                                 sendMessage(key + " Switch/Sensor");
                                             };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                };
                 // add button around link
                 var linkButton = document.createElement("button");
                 linkButton.className = "image-link"
@@ -598,6 +622,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase();
@@ -645,6 +670,12 @@
                         button.onclick = function() {
                                                 sendMessage(key + " Switch/Sensor");
                                             };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                        };
                         // add button around link
                         var linkButton = document.createElement("button");
                         linkButton.className = "image-link"
@@ -660,6 +691,7 @@
                         figure.id = encodeURIComponent(key);
                         figure.appendChild(linkButton);
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase();
