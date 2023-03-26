@@ -137,16 +137,16 @@ html {
 	box-sizing: border-box;
 
 }
-
+/* 
 input, textarea {
 
 	-webkit-appearance: none;
 
 	-webkit-border-radius: 0;
 
-}
+} */
 
-button, html input[type="button"],/* 1 */ input[type="reset"], input[type="submit"] {
+/* button, html input[type="button"],1 input[type="reset"], input[type="submit"] {
 
 	-webkit-appearance: button;
 
@@ -154,7 +154,7 @@ button, html input[type="button"],/* 1 */ input[type="reset"], input[type="submi
 
  *overflow:visible;
 
-}
+} */
 
 body, img,.commentys-form input[type="text"],.commentys-form input[type="email"],.commentys-form input[type="url"],.commentys-form textarea {
 
@@ -250,7 +250,7 @@ a:focus, img:focus, button:focus, .btn:focus {outline: none;}
 
 ::selection {background-color: #fb5353;color: #fff;text-shadow: none;}
 
-@font-face {font-family: 'Open Sans', sans-serif;}
+/* @font-face {font-family: 'Open Sans', sans-serif;} */
 
 /*===== Header ===*/
 
