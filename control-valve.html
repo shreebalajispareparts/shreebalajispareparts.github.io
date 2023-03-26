@@ -351,6 +351,8 @@
             <img class="modal-content" id="img01" style="width: 150%;">
             <div id="caption"></div>
         </div>
+
+        <script src="js/cart.js" type="text/javascript"></script>
     
         <script src="js_routing/control-valve.js" type="text/javascript"></script>
 
@@ -410,6 +412,13 @@
                                                 sendMessage(key + " Control valve");
                                                 onClickButton(key, value);
                                             };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                                            onClickButton(key, value);
+                };
                 // add button around link
                 var linkButton = document.createElement("button");
                 linkButton.className = "image-link"
@@ -425,6 +434,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase() + " Control Valve";
@@ -487,7 +497,15 @@
                                                 sendMessage(key + " Control valve");
                                                 onClickButton(key, value);
                                             };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                                                    onClickButton(key, value);
+                        };
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase() + " Control Valve";
@@ -571,6 +589,12 @@
                 button.onclick = function() {
                                                 sendMessage(key + " Control valve");
                                             };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                };
                 // add button around link
                 var linkButton = document.createElement("button");
                 linkButton.className = "image-link"
@@ -586,6 +610,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase() + " Control Valve";
@@ -647,7 +672,14 @@
                         button.onclick = function() {
                                                 sendMessage(key + " Control valve");
                                             };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                        };
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase() + " Control Valve";

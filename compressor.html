@@ -153,10 +153,10 @@
 
                             </h1>
 
-                            <div style="font-size: 18px; font-weight: 600; color: darkslategray;">
+                            <div style="font-size: 18px; font-weight: 600; color: darkslategray; display: inline;">
                                 SHREE BALAJI SPAREPARTS KOTKAPURA
                             </div>
-
+                           
                         <!-- logo -->
 
                         <!-- nav -->
@@ -198,7 +198,7 @@
                         </nav>
 
                         <!-- nav -->
-
+                       
                     </div>
 
                 </header>
@@ -350,6 +350,8 @@
             <img class="modal-content" id="img01" style="width: 150%;">
             <div id="caption"></div>
         </div>
+
+        <script src="js/cart.js" type="text/javascript"></script>
     
         <script src="js_routing/compressor.js" type="text/javascript"></script>
         
@@ -400,13 +402,18 @@
                 section.className = "blog-content";
                 var button = document.createElement("button");
                 button.className = "image-button";
-                button.innerHTML = "Get Price";
-                
+                button.innerHTML = "Get Price"; 
                 button.onclick = function() {
                                             sendMessage(key + " Compressor");
                                             onClickButton(key, value);
-                                        };
-                
+                };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                                            onClickButton(key, value);
+                };
                 // add button around link
                 var linkButton = document.createElement("button");
                 linkButton.className = "image-link"
@@ -427,6 +434,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase() + " Compressor";
@@ -470,6 +478,13 @@
                                                         sendMessage(key + " Compressor");
                                                         onClickButton(key, value);
                                                     };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                                                    onClickButton(key, value);
+                        };
                         var img = document.createElement("img");
                         img.src = value;
                         img.onclick = function() {showimage(value);};
@@ -490,6 +505,7 @@
                         figure.appendChild(linkButton);
                         figure.id = encodeURIComponent(key);
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase() + " Compressor";
@@ -585,6 +601,12 @@
                 button.onclick = function() {
                                             sendMessage(key + " Compressor");
                                         };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                };
                 
                 // add button around link
                 var linkButton = document.createElement("button");
@@ -606,6 +628,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase() + " Compressor";
@@ -648,6 +671,12 @@
                         button.onclick = function() {
                                                         sendMessage(key + " Compressor");
                                                     };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                        };
                         var img = document.createElement("img");
                         img.src = value;
                         img.onclick = function() {showimage(value);};
@@ -668,6 +697,7 @@
                         figure.appendChild(linkButton);
                         figure.id = encodeURIComponent(key);
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase() + " Compressor";

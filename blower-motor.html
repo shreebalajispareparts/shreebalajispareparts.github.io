@@ -348,6 +348,8 @@
             <div id="caption"></div>
         </div>
 
+        <script src="js/cart.js" type="text/javascript"></script>
+
         <script src="js_routing/blower-motor.js" type="text/javascript"></script>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -406,6 +408,13 @@
                                                 sendMessage(key + " Blower motor");
                                                 onClickButton(key, value);
                                             };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                                            onClickButton(key, value);
+                };
                 // add button around link
                 var linkButton = document.createElement("button");
                 linkButton.className = "image-link"
@@ -421,6 +430,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase() + " Blower Motor";
@@ -469,6 +479,13 @@
                                                         sendMessage(key + " Blower motor");
                                                         onClickButton(key, value);
                                                     };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                                                    onClickButton(key, value);
+                        };
                         // add button around link
                         var linkButton = document.createElement("button");
                         linkButton.className = "image-link"
@@ -484,6 +501,7 @@
                         figure.id = encodeURIComponent(key);
                         figure.appendChild(linkButton);
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase() + " Blower Motor";
@@ -573,6 +591,12 @@
                 button.onclick = function() {
                                                 sendMessage(key + " Blower motor");
                                             };
+                var button2 = document.createElement("button");
+                button2.className = "image-button2";
+                button2.innerHTML = "Add to Cart";
+                button2.onclick = function() {
+                                            addToCart(key, 5000);
+                };
                 // add button around link
                 var linkButton = document.createElement("button");
                 linkButton.className = "image-link"
@@ -588,6 +612,7 @@
                 figure.id = encodeURIComponent(key);
                 figure.appendChild(linkButton);
                 figure.appendChild(button);
+                figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
                 article.innerHTML = key.toUpperCase() + " Blower Motor";
@@ -635,6 +660,12 @@
                         button.onclick = function() {
                                                         sendMessage(key + " Blower motor");
                                                     };
+                        var button2 = document.createElement("button");
+                        button2.className = "image-button2";
+                        button2.innerHTML = "Add to Cart";
+                        button2.onclick = function() {
+                                                    addToCart(key, 5000);
+                        };
                         // add button around link
                         var linkButton = document.createElement("button");
                         linkButton.className = "image-link"
@@ -650,6 +681,7 @@
                         figure.id = encodeURIComponent(key);
                         figure.appendChild(linkButton);
                         figure.appendChild(button);
+                        figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
                         article.innerHTML = key.toUpperCase() + " Blower Motor";

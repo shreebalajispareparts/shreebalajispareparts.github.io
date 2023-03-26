@@ -96,8 +96,19 @@ html {
 	padding-bottom: 0px !important;
 }
 
+.image-button2 {
+	right: 0;
+	position: absolute;
+	padding: 5px;
+	z-index: 2;
+	margin: 10px;
+	border-radius: 8px;
+	border-color: lightgray;
+}
+
 .image-button {
 	right: 0;
+	bottom : 0;
 	position: absolute;
 	padding: 5px;
 	z-index: 2;
@@ -479,3 +490,54 @@ article[role="pge-title-content"].contact-header p a:hover{color:#fb5353; text-d
 
 .commentys-form input[type="button"]:hover{ background-color:#ff5c5c}
 
+#cart-summary {
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #ccc;
+  }
+  
+  #cart-summary h1 {
+	margin-top: 0;
+  }
+  
+  #cart-summary table {
+	width: 100%;
+  }
+  
+  #cart-summary th {
+	background-color: #fb5353;
+	color : white;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+	padding: 2px;
+  }
+  
+  #cart-summary td {
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+  }
+
+  #cart-summary tr:nth-child(even) {
+	background-color: #ffffff;
+  }
+  
+  #cart-summary input[type="number"] {
+	width: 50px;
+  }
+  
+  #cart-summary #cart-total {
+	text-align: right;
+	margin-top: 20px;
+  }
+  
+  #cart-summary #cart-total button {
+	margin-left: 10px;
+  }
+  
+  #cart-summary #cart-total p span {
+	font-weight: bold;
+  }
+
+  #cart-item{
+	padding: 5px;
+  }
