@@ -249,10 +249,23 @@
                                 </table>
                                 <div id="cart-total">
                                   <p>Total: ₹<span id="total"></span></p>
-                                  <button id="checkout-button">Checkout</button>
-                                  <button id="continue-shopping-button">Continue Shopping</button>
+                                  <button onclick="" id="checkout-button">Checkout</button>
+                                  <button id="continue-shopping-button" onclick="checkout()">Continue Shopping</button>
                                 </div>
                               </div>
+
+                              <form id="postcodeForm">
+                                <label for="query">Delivery Postcode:</label>
+                                <input type="text" id="query" name="query">
+                                <button type="submit" onclick="onClickButton()">Check Delivery Price</button>
+                                <div id="data-container">
+                                    <p id="recommended-company"></p>
+                                    <p id="estimated-price"></p>
+                                    <p id="estimated-delivery-date"></p>
+                                    <p id="estimated-delivery-days"></p>
+                                  </div>
+                              </form>
+
                             <ul style="height: auto;" id="grid">
                             </ul>
 
@@ -428,13 +441,75 @@
                     const cartItem = document.createElement("TR");
                     const itemSubtotal = item.price * item.quantity;
                     cartItem.innerHTML = `
-                    <td>${item.name} </td> <td> ₹${item.price} </td> <td> ${item.quantity} </td> <td> ₹${itemSubtotal} </td> <td><button onclick="removeItemByName('${item.name}')">Remove</button></td>
+                    <td>${item.name} </td> <td> ₹${item.price} </td> <td> ${item.quantity} </td> <td class="subtotal"> ₹${itemSubtotal} </td> <td><button onclick="removeItemByName('${item.name}')">Remove</button></td>
                     `;
                     cartItems.appendChild(cartItem);
                 });
+
+                const subtotalCells = document.querySelectorAll('.subtotal');
+                let total = 0;
+                subtotalCells.forEach(cell => {
+                total += parseFloat(cell.textContent.replace('₹', ''));
+                });
+                document.getElementById('total').textContent = '₹' + total.toFixed(2);
             }
             displayCart();
 
+            //document.getElementById("checkout-button").onclick = function() {checkout()};
+
+            function checkout() {
+                
+            }
+
+            function onClickButton() {
+                const postcodeForm = document.getElementById('postcodeForm');
+                postcodeForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent the form from submitting
+
+                const delivery_postcode = document.getElementById('query').value;
+                console.log(delivery_postcode);
+
+                fetch('http://localhost:5000/auth')
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error(error));
+
+                const endpointUrl = `http://localhost:5000/check_serviceability?pickup_postcode=151204&delivery_postcode=${delivery_postcode}&cod=0&weight=5&length=18&breadth=18&height=8&declared_value=8000&mode=Surface&is_return=0`;
+
+                fetch(endpointUrl)
+                    .then(response => response.json())   
+                    .then(data => {
+                        let recommendedCompany;
+                        const recommendedCompany_ID = data.data.recommended_courier_company_id;
+                        console.log(recommendedCompany_ID);
+                        
+                        const companies = data.data.available_courier_companies;
+                        companies.forEach(company => {
+                        if (company.courier_company_id == recommendedCompany_ID) {
+                            recommendedCompany = company;
+                        }
+                        });
+                        
+                        const recommendedCompanyEl = document.getElementById('recommended-company');
+                        recommendedCompanyEl.textContent = `Recommended company: ${recommendedCompany.courier_name}`;
+                        
+                        const estimatedPriceEl = document.getElementById('estimated-price');
+                        estimatedPriceEl.textContent = `Estimated price: ₹${recommendedCompany.rto_charges}`;
+                        
+                        const estimatedDeliveryDateEl = document.getElementById('estimated-delivery-date');
+                        estimatedDeliveryDateEl.textContent = `Estimated delivery date: ${recommendedCompany.etd}`;
+                        
+                        const estimatedDeliveryDaysEl = document.getElementById('estimated-delivery-days');
+                        estimatedDeliveryDaysEl.textContent = `Estimated delivery days: ${recommendedCompany.estimated_delivery_days}`;
+
+                        console.log('Recommended company:', recommendedCompany.courier_name);
+                        console.log('Estimated price: ₹', recommendedCompany.rto_charges);
+                        console.log('Estimated delivery date:', recommendedCompany.etd);
+                        console.log('Estimated delivery days:', recommendedCompany.estimated_delivery_days);
+                    })
+                    .catch(error => console.error(error));
+                });
+            }
         </script>               
     
     </body>
