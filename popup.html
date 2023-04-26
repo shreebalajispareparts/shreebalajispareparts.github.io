@@ -393,13 +393,11 @@
 
         <script>
             function updateBilling() {
-                console.log("click");
-                let user = JSON.parse(localStorage.getItem('user')) || [];
-                console.log(user);
+
+                let user = JSON.parse(sessionStorage.getItem('user')) || [];
+
                 const firstName = document.getElementById('firstName').value;
-                console.log(firstName);
                 const lastName = document.getElementById('lastName').value;
-                console.log(lastName);
                 const country = document.getElementById('country').value;
                 const adress1 = document.getElementById('adress1').value;
                 const address2 = document.getElementById('address2').value;
@@ -410,7 +408,6 @@
                 const zipCode = document.getElementById('zipCode').value;
 
                 const existingUserData = user.find(userData => userData.email === email);
-
                 if (existingUserData) {
                     existingUserData.firstName = firstName;
                     existingUserData.lastName = lastName;
@@ -424,8 +421,7 @@
                 } else {
                     user.push({ firstName: firstName, lastName: lastName, country: country, adress1: adress1, address2: address2, phone: phone, email: email, city: city, State: State, zipCode: zipCode });
                 }
-                console.log(user);
-                localStorage.setItem('user', JSON.stringify(user));
+                sessionStorage.setItem('user', JSON.stringify(user));
             }
         
         </script>
