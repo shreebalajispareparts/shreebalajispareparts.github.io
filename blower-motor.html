@@ -549,7 +549,7 @@
     
             const data = { "buttonName" : buttonName  , "location" : location};
             
-            fetch('https://app.shreebalajispareparts.com/clicks', {
+            fetch('https://app.shreebalajispareparts.com/clicks ', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
                 body: JSON.stringify({ "buttonName" : buttonName , "location" : location })

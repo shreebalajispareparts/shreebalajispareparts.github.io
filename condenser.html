@@ -394,7 +394,7 @@
         fetch('https://app.shreebalajispareparts.com/condenser_sorted')
             .then(response => response.json())
             .then(docs => {
-                docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
+                docsDict = Object.fromEntries(docs.map(({ Name, Location }) => [Name, Location]));
             
         function addContent() {
             for (const [key, value] of Object.entries(docsDict)) {
