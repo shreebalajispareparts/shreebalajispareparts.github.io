@@ -2,21 +2,21 @@
 
 	Theme Name: avana LLC
 
-	Template URI: 
+	Template URI:
 
-	Description: 
+	Description:
 
 	Author:
 
-	Author URI: 
+	Author URI:
 
-	License: 
+	License:
 
 	License URI:
 
 	Version: 1.0
 
-	
+
 
 	1. Body style
 
@@ -28,7 +28,7 @@
 
 	5. About
 
-	
+
 
 */
 
@@ -44,7 +44,7 @@ html {
 
 .float-container{
 	padding: 0px;
-	
+
 }
 
 .float-child{
@@ -52,13 +52,14 @@ html {
     float: left;
     padding: 20px;
 	padding-top: 0px;
-	padding-left: 40px;
+	/* padding-left: 40px; */
 	padding-bottom: 0px;
 	font-size: medium;
 }
 
 .call-box {
 	border: 2px solid rgb(145, 145, 160);
+	border-radius: 50px;
 	background-color: whitesmoke;
 	opacity: 0.8;
 	display: flex;
@@ -70,6 +71,8 @@ html {
 
 .whatsapp-box {
 	border: 2px solid rgb(145, 145, 160);
+	border-radius: 5px;
+	border-radius: 50px;
 	background-color: whitesmoke;
 	opacity: 0.8;
 	display: flex;
@@ -137,7 +140,7 @@ html {
 	box-sizing: border-box;
 
 }
-/* 
+/*
 input, textarea {
 
 	-webkit-appearance: none;
@@ -254,25 +257,25 @@ a:focus, img:focus, button:focus, .btn:focus {outline: none;}
 
 /*===== Header ===*/
 
-header[role="header"]{ padding-top:10px;}
+header[role="header"]{ padding-top:20px;}
 
 header[role="header"] h1{ padding:0; margin:0}
 
 header[role="header"] h1 > a{ max-width:66px; display:block; float:left}
 
-header[role="header"] nav{ padding-top:10px;transition-delay: 0s;
+header[role="header"] nav{ padding-top:20px;transition-delay: 0s;
 
 transition-duration: 0.6s;transition-property: all;transition-timing-function: ease;}
 
-header[role="header"] nav ul{ display:none; position: fixed; z-index:60; text-align:center; width:100%; height:100%; top:0; left:0; right:0; background-color:rgba(255,255,255,0.8); padding:0; margin:0; padding-top:199px;}
+header[role="header"] nav ul{ display:none; position: fixed; z-index:60; text-align:center; width:100%; height:100%; top:0; left:0; right:0; background-color:rgba(255,255,255,0.8); padding:0; margin:0; padding-top:50px;}
 
-header[role="header"] nav ul > li{ font-weight:800; font-size:42px; display:block}
+header[role="header"] nav ul > li{ font-weight:800; font-size:20px; display:block}
 
-header[role="header"] nav ul > li > a{ display:block; line-height:72px; color:#404040}
+header[role="header"] nav ul > li > a{ display:block; line-height:40px; color:#404040}
 
 header[role="header"] nav ul > li:hover a,header[role="header"] nav ul > li.nav-active a{ text-decoration:none; color:#fb5353}
 
-header[role="header"] nav #menu-button {width: 31px;font-size: 0;float: right;height: 19px;position: relative; z-index:70;
+header[role="header"] nav #menu-button {width: 31px;font-size: 0;float: right;height: 20px;position: relative; z-index:70;
 
 -webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);-webkit-transition: .5s ease-in-out;-moz-transition: .5s ease-in-out;-o-transition: .5s ease-in-out;transition: .5s ease-in-out;cursor: pointer;}
 
@@ -315,6 +318,7 @@ main[role="main-home-wrapper"] article[role="pge-title-content"] header h2,main[
 main[role="main-home-wrapper"] article[role="pge-title-content"] header h2 span,main[role="main-inner-wrapper"] article[role="pge-title-content"] header h2 span{ display:block; font-size:80px; color:#fb5353;}
 
 main[role="main-home-wrapper"] article[role="pge-title-content"] p,main[role="main-inner-wrapper"] article[role="pge-title-content"] p{ font-size:20px; line-height:30px; color:#454545}
+
 
 /*===== footer ===*/
 
@@ -491,11 +495,11 @@ article[role="pge-title-content"].contact-header p a:hover{color:#fb5353; text-d
 .commentys-form input[type="button"]:hover{ background-color:#ff5c5c}
 
 #cart-summary {
-	margin: 0px;
-	padding: 0px;
-	border: 1px solid #ccc;
-  }
-  
+margin: 0px;
+padding: 0px;
+border: 1px solid #ccc;
+}
+
 #cart-summary h1 {
 margin-top: 0;
 }
@@ -543,24 +547,40 @@ padding: 5px;
 }
 
 #sidebar {
-	display: block !important;
-	position: fixed;
-	top: 0;
-	right: 0;
-	width : 0%;
-	height: 100%;
-	background-color: #fff;
-	z-index: 9999;
-	overflow-x: hidden;
-	transition: 0.5s;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+display: block !important;
+position: fixed;
+top: 0;
+right: 0;
+width : 0%;
+height: 100%;
+background-color: #fff;
+z-index: 9999;
+overflow-x: hidden;
+transition: 0.5s;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar > div {
+padding: 10px;
+border-bottom: 1px solid #ccc;
+}
+
+#sidebar > div:last-child {
+border-bottom: none;
+}
+
+/** Grid css for all pages **/
+ul#grid {
+	columns: 1;
+	column-gap: 20px;
   }
-  
-  #sidebar > div {
-	padding: 10px;
-	border-bottom: 1px solid #ccc;
+  @media (min-width: 992px) {
+	ul#grid {
+	  columns: 2; /* Increase the number of columns for large screens */
+	}
   }
-  
-  #sidebar > div:last-child {
-	border-bottom: none;
-  }
+  @media (min-width: 1200px) {
+	ul#grid {
+	  columns: 3; /* Increase the number of columns for large screens */
+	}
+}

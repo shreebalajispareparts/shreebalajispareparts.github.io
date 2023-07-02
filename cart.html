@@ -136,7 +136,6 @@
 
     
         <div style="height: 100%; width: 100%;">
-
             <!-- header -->
 
             <div style="height: 10vh; position: fixed; z-index: 200; top: 0; width: 100%; background: whitesmoke;">
@@ -250,6 +249,11 @@
                                 <div id="cart-total">
                                   <p>Total: ₹<span id="total"></span></p>
                                   <button id="checkout-button" onclick="checkout()">Checkout</button>
+                                  <!-- <div id="container"></div> -->
+                                  <!-- <button id="googlePayButton">Pay with Google Pay</button> -->
+                                  <!-- <button id="buy-now">Pay with Google Pay</button> -->
+                                  <div id="buy-now">
+                                  </div>
                                   <button id="continue-shopping-button">Continue Shopping</button>
                                 </div>
                               </div>
@@ -273,6 +277,9 @@
 
                     </div>
 
+                    <form action="http://localhost:5000/create_checkout_session" method="GET">
+                        <button type="submit">Checkout</button>
+                      </form>
                 </main>
                 <!-- main -->
 
@@ -388,9 +395,20 @@
         
         <!--Google Pay-->
 
-        <script src="https://pay.google.com/gp/p/js/pay.js"></script>
-        
         <script src="js/cart.js" type="text/javascript"></script>
+        
+        <!-- <script async
+            src="https://pay.google.com/gp/p/js/pay.js"
+            onload="onGooglePayLoaded()">
+            </script> -->
+
+        <script src="https://pay.google.com/gp/p/js/pay.js"></script>
+
+        <!-- <script src="https://js.braintreegateway.com/web/dropin/1.30.0/js/dropin.min.js"></script> -->
+
+        <script src="https://js.stripe.com/v3/"></script>
+        
+        
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
@@ -438,7 +456,7 @@
 
             function displayCart() {
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                console.log(cart);
+                console.log(cart); 
                 cartItems.innerHTML = '';
 
                 cart.forEach(item => {
@@ -513,8 +531,242 @@
                     .catch(error => console.error(error));
                 });
             }
+
+
+
+
+
+
+
+            // const baseRequest = {
+            // apiVersion: 2,
+            // apiVersionMinor: 0
+            // };
+            // const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
+            // const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+            // const tokenizationSpecification = {
+            // type: 'PAYMENT_GATEWAY',
+            // parameters: {
+            //         gateway: 'stripe',
+            //         // gatewayMerchantId: 'pk_test_51NISOmSDkPzV1XKEVmB3kqf8IQlAB8ASSoEWu8104bc3DsBftNOcYRnd3SWt9R1RouU9IZk7zeegN5KqRYNpF5tu00B4BhMKP3',
+            //         'stripe:version': '2022-11-15',
+            //         'stripe:publishableKey': 'pk_test_51NISOmSDkPzV1XKEVmB3kqf8IQlAB8ASSoEWu8104bc3DsBftNOcYRnd3SWt9R1RouU9IZk7zeegN5KqRYNpF5tu00B4BhMKP3',
+            //     },
+            // };
+            // const baseCardPaymentMethod = {
+            //     type: 'CARD',
+            //     parameters: {
+            //         allowedAuthMethods: allowedCardAuthMethods,
+            //         allowedCardNetworks: allowedCardNetworks
+            //     }
+            // };
+            // const cardPaymentMethod = Object.assign(
+            //     {},
+            //     baseCardPaymentMethod,
+            //     {
+            //         tokenizationSpecification: tokenizationSpecification
+            //     }
+            // );
+            // let paymentsClient = null;
+            // function getGoogleIsReadyToPayRequest() {
+            //     return Object.assign(
+            //         {},
+            //         baseRequest,
+            //         {
+            //             allowedPaymentMethods: [baseCardPaymentMethod]
+            //         }
+            //     );
+            // }
+            // function getGooglePaymentDataRequest() {
+            //     const paymentDataRequest = Object.assign({}, baseRequest);
+            //     paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
+            //     paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+            //     paymentDataRequest.merchantInfo = {
+            //         // @todo a merchant ID is available for a production environment after approval by Google
+            //         // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
+            //         // merchantId: '12345678901234567890',
+            //         merchantId: 'BCR2DN4TULQ7LAZK',
+            //         merchantName: 'Shree Balaji Spare Parts',
+            //     };
+            //     return paymentDataRequest;
+            // }
+            // function getGooglePaymentsClient() {
+            //     if ( paymentsClient === null ) {
+            //         paymentsClient = new google.payments.api.PaymentsClient({
+            //             environment: 'TEST',
+            //             // paymentDataCallbacks: {
+            //             //     onPaymentAuthorized: onPaymentAuthorized
+            //             // }
+            //         });
+            //     }
+            //     return paymentsClient;
+            // }
+            // // function onPaymentAuthorized(paymentData) {
+            // //     return new Promise(function(resolve, reject){
+            // //         // handle the response
+            // //         processPayment(paymentData)
+            // //         .then(function() {
+            // //             resolve({transactionState: 'SUCCESS'});
+            // //         })
+            // //         .catch(function() {
+            // //             resolve({
+            // //             transactionState: 'ERROR',
+            // //             error: {
+            // //                 intent: 'PAYMENT_AUTHORIZATION',
+            // //                 message: 'Insufficient funds, try again. Next attempt should work.',
+            // //                 reason: 'PAYMENT_DATA_INVALID'
+            // //             }
+            // //             });
+            // //             });
+            // //     });
+            // // }
+            // function onGooglePayLoaded() {
+            //     const paymentsClient = getGooglePaymentsClient();
+            //     paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
+            //         .then(function(response) {
+            //             if (response.result) {
+            //             addGooglePayButton();
+            //             // @todo prefetch payment data to improve performance after confirming site functionality
+            //             // prefetchGooglePaymentData();
+            //             }
+            //         })
+            //         .catch(function(err) {
+            //             // show error in developer console for debugging
+            //             console.error(err);
+            //         });
+            // }
+            // function addGooglePayButton() {
+            //     const paymentsClient = getGooglePaymentsClient();
+            //     const button =
+            //         paymentsClient.createButton({
+            //             onClick: onGooglePaymentButtonClicked,
+            //             allowedPaymentMethods: [baseCardPaymentMethod]
+            //         });
+            //     document.getElementById('container').appendChild(button);
+            // }
+            // function getGoogleTransactionInfo() {
+            //     return {
+            //         countryCode: 'IN',
+            //         currencyCode: 'INR',
+            //         totalPriceStatus: 'FINAL',
+            //         // set to cart total
+            //         totalPrice: '0.00'
+            //     };
+            // }
+            // // function prefetchGooglePaymentData() {
+            // //     const paymentDataRequest = getGooglePaymentDataRequest();
+            // //     // transactionInfo must be set but does not affect cache
+            // //     paymentDataRequest.transactionInfo = {
+            // //         totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
+            // //         currencyCode: 'USD'
+            // //     };
+            // //     const paymentsClient = getGooglePaymentsClient();
+            // //     paymentsClient.prefetchPaymentData(paymentDataRequest);
+            // // }
+            // function onGooglePaymentButtonClicked() {
+            //     const paymentDataRequest = getGooglePaymentDataRequest();
+            //     paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+
+            //     const paymentsClient = getGooglePaymentsClient();
+            //     paymentsClient.loadPaymentData(paymentDataRequest)
+            //         .then(function(paymentData) {
+            //             // handle the response
+            //             processPayment(paymentData);
+            //         })
+            //         .catch(function(err) {
+            //             // show error in developer console for debugging
+            //             console.error(err);
+            //         });
+            // }
+            // function processPayment(paymentData) {
+            //     // show returned data in developer console for debugging
+            //         console.log(paymentData);
+            //     // @todo pass payment token to your gateway to process payment
+            //     // @note DO NOT save the payment credentials for future transactions,
+            //     // unless they're used for merchant-initiated transactions with user
+            //     // consent in place.
+            //     paymentToken = paymentData.paymentMethodData.tokenizationData.token;
+            // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //         // Load the Braintree client SDK
+    // braintree.dropin.create({
+    //   authorization: 'YOUR_BRAINTREE_CLIENT_TOKEN',
+    //   container: '#dropin-container'
+    // }, function (err, dropinInstance) {
+    //   if (err) {
+    //     console.error(err);
+    //     return;
+    //   }
+    //   // Set up the Google Pay button
+    //   googlePayClient = dropinInstance.googlePay.createClient({
+    //     googlePayVersion: 2,
+    //     merchantId: 'BCR2DN4TULQ7LAZK',
+    //     transactionInfo: {
+    //       totalPriceStatus: 'FINAL',
+    //       totalPrice: '10.00', // Replace with the actual payment amount
+    //       currencyCode: 'USD' // Replace with the actual currency
+    //     }
+    //   });
+    //   googlePayClient.isReadyToPay()
+    //     .then(function (response) {
+    //       if (response.result) {
+    //         document.getElementById('googlePayButton').addEventListener('click', function () {
+    //           googlePayClient.loadPaymentData()
+    //             .then(function (paymentData) {
+    //               // Send the payment token to your server for processing
+    //               fetch('/processPayment', {
+    //                 method: 'POST',
+    //                 headers: {
+    //                   'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({
+    //                   paymentToken: paymentData.paymentMethodData.tokenizationData.token
+    //                 })
+    //               }).then(function (response) {
+    //                 if (response.ok) {
+    //                   // Payment success, display confirmation to the user
+    //                   console.log('Payment successful!');
+    //                 } else {
+    //                   // Payment failed, handle the error
+    //                   console.error('Payment failed:', response.statusText);
+    //                 }
+    //               });
+    //             })
+    //             .catch(function (error) {
+    //               console.error('Error loading Google Pay:', error);
+    //             });
+    //         });
+    //       }
+    //     })
+    //     .catch(function (error) {
+    //       console.error('Error checking Google Pay readiness:', error);
+    //     });
+    // });
+            
         </script>               
-    
+        <!-- <script async
+        src="https://pay.google.com/gp/p/js/pay.js"
+        onload="onGooglePayLoaded()"></script> -->
     </body>
 
 </html>
