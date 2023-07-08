@@ -67,6 +67,7 @@ html {
 	justify-content: center;
 	width: 50%;
 	height: 100%;
+	margin-right: 10px;
 }
 
 .whatsapp-box {
@@ -80,6 +81,7 @@ html {
 	justify-content: center;
 	width: 50%;
 	height: 100%;
+	margin-left: 10px;
 }
 
 .full-size {
@@ -374,9 +376,9 @@ main[role="main-inner-wrapper"] .thumbnails-pan section figure:hover figcaption{
 
 article[role="pge-title-content"].blog-header{ padding-bottom:218px}
 
-section.blog-content{ margin-bottom:29px}
+section.blog-content{ margin-bottom:29px;}
 
-section.blog-content figure{ overflow:hidden; position:relative;background-color: rgba(255,255,255,0.4); cursor:pointer}
+section.blog-content figure{ overflow: hidden; position:relative;background-color: rgba(255,255,255,0.4); cursor:pointer}
 
 section.blog-content figure .post-date{ text-align:center; color:#FFF; font-weight:800; font-size:14px; line-height:18px; text-transform:uppercase; display:block; background-color:#fb5353; width:130px; height:130px; position:absolute; left:0; top:0; padding-top:41px; z-index:50}
 
