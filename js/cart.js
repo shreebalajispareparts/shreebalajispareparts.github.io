@@ -344,7 +344,7 @@ function generate_paymentDataRequest(total_price) {
 
       console.log(paymentToken);
       if (paymentData.paymentMethodData) {
-        const url = `http://localhost:5000/payment_verification?paymentMethodToken=${paymentToken.id}`;
+        const url = `http://localhost:5000/payment_verification?token=${paymentToken.id}`;
         fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -440,4 +440,36 @@ function generate_paymentDataRequest(total_price) {
       }
     }
 
+}
+
+
+
+
+
+
+function cashfreeCheckout(){
+  const cashfreeURL = "http://localhost:5000/create_cashfree_order";
+  fetch(cashfreeURL)
+  .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const payment_session_id = data.payment_session_id;
+      let checkoutOptions = {
+        paymentSessionId: payment_session_id,
+        returnUrl: "https://test.cashfree.com/pgappsdemos/v3success.php?myorder={order_id}",
+        
+      }
+      cashfree.checkout(checkoutOptions).then(function(result){
+        if(result.error){
+            alert(result.error.message)
+        }
+        if(result.redirect){
+            console.log("Redirection")
+        }
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      // Handle the error
+    });
 }
