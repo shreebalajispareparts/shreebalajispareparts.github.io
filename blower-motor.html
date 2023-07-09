@@ -18,7 +18,7 @@
 
         <title>Shree Balaji Spareparts</title>
 
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 
 
 
@@ -213,11 +213,11 @@
 
                     
 
-                    <div class="row">
+                    <div class="row" style="margin: auto;">
 
                     
 
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 ">
 
                             <article role="pge-title-content" class="blog-header padding-bottom">
 
@@ -233,8 +233,8 @@
                                 <input type="text" id="search-text" style="border-radius: 10px; width: 80%; height: 30px; border: 2px solid gray;">
                                 <img src="images/cross-icon.png" style="width: 20%; height: 30px;width: 30px;padding-left: 5px;" onclick="clearText()">
                             </div>
-                            <ul style="height: auto;" id="grid">
-                            </ul>
+                            <ul style="height: auto;justify-content:center; width: 100%;" id="grid"></ul>
+
 
                         </div>
 
@@ -263,7 +263,7 @@
 
                         <div class="float-container">
 
-                            <div class="float-child">
+                            <div class="float-child" style="text-align: right;">
                         
                         <ul>
         
@@ -327,7 +327,13 @@
 
                     </ul>
 
-                    <p class="copy-right">&copy; 2015  avana LLC.. All rights Resved</p>
+                    <ul>
+                        <p class="copy-right"><a href="conditions-of-use.html">Conditions of use</a></p>
+                        <p class="copy-right"><a href="privacy_policy.html">Privacy Notice</a></p>
+                        <p class="copy-right"><a href="cancellation-refund-policy.html">Cancellation/Refund Policy</a></p>
+                    </ul>
+                    
+                    <p class="copy-right">&copy; 2023 Shree Balaji Spareparts.. All rights Reserved</p>
 
                 </footer>
                 <div style="height: 8vh; position: fixed; bottom: 0;padding: 5px; width: 100%;">
@@ -549,7 +555,7 @@
     
             const data = { "buttonName" : buttonName  , "location" : location};
             
-            fetch('https://app.shreebalajispareparts.com/clicks', {
+            fetch('https://app.shreebalajispareparts.com/clicks ', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
                 body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
