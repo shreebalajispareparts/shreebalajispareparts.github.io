@@ -435,6 +435,11 @@
                     body: JSON.stringify({ "firstName" : firstName , "lastName" : lastName, "country" : country, "adress1" : adress1, "phone" : phone, "email" : email, "city" : city, "State" : State , "zipCode" : zipCode})
                 }).then(response => response.json())
                 .then(data => console.log(data))
+
+                let user = [];
+                user.push({ firstName : firstName, lastName : lastName, country : country, adress1 : adress1, phone : phone, email : email, city : city, State : State, zipCode : zipCode });
+                sessionStorage.setItem('user', JSON.stringify(user));
+
                 let cart = JSON.parse(localStorage.getItem('cart')) || [];
                 cart.forEach(item => {
                     fetch('http://localhost:5000/create_cart', {

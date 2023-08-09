@@ -562,6 +562,10 @@ transition: 0.5s;
 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
+#sidebar > button {
+	z-index:9999,
+}
+
 #sidebar > div {
 padding: 10px;
 border-bottom: 1px solid #ccc;

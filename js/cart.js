@@ -447,29 +447,39 @@ function generate_paymentDataRequest(total_price) {
 
 
 
-function cashfreeCheckout(){
-  const cashfreeURL = "http://localhost:5000/create_cashfree_order";
-  fetch(cashfreeURL)
-  .then(response => response.json())
+function cashfreeCheckout() {
+  fetch('http://localhost:5000/auth')
+    .then(response => response.json())
     .then(data => {
       console.log(data);
-      const payment_session_id = data.payment_session_id;
-      let checkoutOptions = {
-        paymentSessionId: payment_session_id,
-        returnUrl: "https://test.cashfree.com/pgappsdemos/v3success.php?myorder={order_id}",
-        
-      }
-      cashfree.checkout(checkoutOptions).then(function(result){
-        if(result.error){
-            alert(result.error.message)
-        }
-        if(result.redirect){
-            console.log("Redirection")
-        }
-      });
+
+      const cashfreeURL = "http://localhost:5000/create_cashfree_order";
+      fetch(cashfreeURL)
+        .then(response => response.json())
+        .then(data => {
+          const payment_session_id = data.payment_session_id;
+          const order_id = data.order_id;
+          let checkoutOptions = {
+            paymentSessionId: payment_session_id,
+            returnUrl: `http://localhost/shreebalajispareparts/success.html?order_id=${order_id}`,
+          }
+          cashfree.checkout(checkoutOptions).then(function(result) {
+            if (result.error) {
+              alert(result.error.message);
+            }
+            if (result.redirect) {
+              console.log("Redirection");
+            }
+          });
+        })
+        .catch(error => {
+          console.error(error);
+          // Handle the error for create_cashfree_order fetch
+        });
     })
     .catch(error => {
       console.error(error);
-      // Handle the error
+      // Handle the error for auth fetch
     });
 }
+
