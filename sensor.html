@@ -359,7 +359,7 @@
 
         <script src="js/cart.js" type="text/javascript"></script>
         
-        <script src="js_routing/sensor.js" type="text/javascript"></script>
+        <!-- <script src="js_routing/sensor.js" type="text/javascript"></script> -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
@@ -395,200 +395,200 @@
         let docsDict; // declare a variable to store the key-value dictionary
 
 
-        fetch('https://dapp.shreebalajispareparts.com/sensor_sorted')
-            .then(response => response.json())
-            .then(docs => {
-                docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
+        // fetch('https://dapp.shreebalajispareparts.com/sensor_sorted')
+        //     .then(response => response.json())
+        //     .then(docs => {
+        //         docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
                 
-        function addContent() {
-            for (const [key, value] of Object.entries(docsDict)) {
-                var li = document.createElement("li");
-                var section = document.createElement("section");
-                section.className = "blog-content";
-                var img = document.createElement("img");
-                img.src = value;
-                img.onclick = function() {showimage(value);};
-                img.className = "img-responsive";
-                var figure = document.createElement("figure");
-                var button = document.createElement("button");
-                button.className = "image-button";
-                button.innerHTML = "Get Price";
-                button.onclick = function() {
-                                                sendMessage(key + " Switch/Sensor");
-                                                onClickButton(key, value);
-                                            };
-                var button2 = document.createElement("button");
-                button2.className = "image-button2";
-                button2.innerHTML = "Add to Cart";
-                button2.onclick = function() {
-                                            addToCart(key, 5000);
-                                            onClickButton(key, value);
-                };
-                // add button around link
-                var linkButton = document.createElement("button");
-                linkButton.className = "image-link"
-                var imgLink = document.createElement("i");
-                imgLink.className = "material-icons";
-                imgLink.innerHTML = "&#xe80d;";
-                linkButton.onclick = function() {navigator.share({
-                                                    title: 'Shree Balaji Spareparts Kotkapura',
-                                                    text: key,
-                                                    url: window.location.href + "#" + encodeURIComponent(key),
-                                                })};
-                linkButton.appendChild(imgLink);
-                figure.id = encodeURIComponent(key);
-                figure.appendChild(linkButton);
-                figure.appendChild(button);
-                //figure.appendChild(button2);
-                figure.appendChild(img);
-                var article = document.createElement("article");
-                article.innerHTML = key.toUpperCase();
-                section.appendChild(figure);
-                section.appendChild(article);
-                li.appendChild(section);
-                document.getElementById("grid").appendChild(li);
-            }
-            document.getElementById("grid").style.height = "auto";
-        }
-        addContent();
+        // function addContent() {
+        //     for (const [key, value] of Object.entries(docsDict)) {
+        //         var li = document.createElement("li");
+        //         var section = document.createElement("section");
+        //         section.className = "blog-content";
+        //         var img = document.createElement("img");
+        //         img.src = value;
+        //         img.onclick = function() {showimage(value);};
+        //         img.className = "img-responsive";
+        //         var figure = document.createElement("figure");
+        //         var button = document.createElement("button");
+        //         button.className = "image-button";
+        //         button.innerHTML = "Get Price";
+        //         button.onclick = function() {
+        //                                         sendMessage(key + " Switch/Sensor");
+        //                                         onClickButton(key, value);
+        //                                     };
+        //         var button2 = document.createElement("button");
+        //         button2.className = "image-button2";
+        //         button2.innerHTML = "Add to Cart";
+        //         button2.onclick = function() {
+        //                                     addToCart(key, 5000);
+        //                                     onClickButton(key, value);
+        //         };
+        //         // add button around link
+        //         var linkButton = document.createElement("button");
+        //         linkButton.className = "image-link"
+        //         var imgLink = document.createElement("i");
+        //         imgLink.className = "material-icons";
+        //         imgLink.innerHTML = "&#xe80d;";
+        //         linkButton.onclick = function() {navigator.share({
+        //                                             title: 'Shree Balaji Spareparts Kotkapura',
+        //                                             text: key,
+        //                                             url: window.location.href + "#" + encodeURIComponent(key),
+        //                                         })};
+        //         linkButton.appendChild(imgLink);
+        //         figure.id = encodeURIComponent(key);
+        //         figure.appendChild(linkButton);
+        //         figure.appendChild(button);
+        //         //figure.appendChild(button2);
+        //         figure.appendChild(img);
+        //         var article = document.createElement("article");
+        //         article.innerHTML = key.toUpperCase();
+        //         section.appendChild(figure);
+        //         section.appendChild(article);
+        //         li.appendChild(section);
+        //         document.getElementById("grid").appendChild(li);
+        //     }
+        //     document.getElementById("grid").style.height = "auto";
+        // }
+        // addContent();
         
-        const input = document.querySelector('input');
-        input.addEventListener('input', searchText)
+        // const input = document.querySelector('input');
+        // input.addEventListener('input', searchText)
 
-        function removeContent() {
-            var grid = document.getElementById("grid");
-            while(grid.firstChild) {
-                console.log("removed", grid.childNodes[0]);
-                grid.removeChild(grid.firstChild);
-            }
-            grid.style.height = 'auto';
-            console.log("after removal", grid);
-        }
+        // function removeContent() {
+        //     var grid = document.getElementById("grid");
+        //     while(grid.firstChild) {
+        //         console.log("removed", grid.childNodes[0]);
+        //         grid.removeChild(grid.firstChild);
+        //     }
+        //     grid.style.height = 'auto';
+        //     console.log("after removal", grid);
+        // }
 
-        function searchText(e) {
-            if (e.target.value !== '') {
-                // remove inner content
-                removeContent();
-                const searchText = e.target.value.toLowerCase();
-                for (const [key, value] of Object.entries(docsDict)) {
-                    if (value.search(searchText) !== -1) {
-                        console.log("found item");
-                        var li = document.createElement("li");
-                        var section = document.createElement("section");
-                        section.className = "blog-content";
-                        var img = document.createElement("img");
-                        img.src = value;
-                        img.onclick = function() {showimage(value);};
-                        img.className = "img-responsive";
-                        var figure = document.createElement("figure");
-                        var button = document.createElement("button");
-                        button.className = "image-button";
-                        button.innerHTML = "Get Price";
-                        button.onclick = function() {
-                                                sendMessage(key + " Switch/Sensor");
-                                                onClickButton(key, value);
-                                            };
-                        var button2 = document.createElement("button");
-                        button2.className = "image-button2";
-                        button2.innerHTML = "Add to Cart";
-                        button2.onclick = function() {
-                                                    addToCart(key, 5000);
-                                                    onClickButton(key, value);
-                        };
-                        // add button around link
-                        var linkButton = document.createElement("button");
-                        linkButton.className = "image-link"
-                        var imgLink = document.createElement("i");
-                        imgLink.className = "material-icons";
-                        imgLink.innerHTML = "&#xe80d;";
-                        linkButton.onclick = function() {navigator.share({
-                                                            title: 'Shree Balaji Spareparts Kotkapura',
-                                                            text: key,
-                                                            url: window.location.href + "#" + encodeURIComponent(key),
-                                                        })};
-                        linkButton.appendChild(imgLink);
-                        figure.id = encodeURIComponent(key);
-                        figure.appendChild(linkButton);
-                        figure.appendChild(button);
-                        //figure.appendChild(button2);
-                        figure.appendChild(img);
-                        var article = document.createElement("article");
-                        article.innerHTML = key.toUpperCase();
-                        section.appendChild(figure);
-                        section.appendChild(article);
-                        li.appendChild(section);
-                        document.getElementById("grid").appendChild(li);
-                    }
-                    document.getElementById("grid").style.height = 'auto';
-                }
-            } else {
-                removeContent();
-                addContent();
-            }
-        }
+        // function searchText(e) {
+        //     if (e.target.value !== '') {
+        //         // remove inner content
+        //         removeContent();
+        //         const searchText = e.target.value.toLowerCase();
+        //         for (const [key, value] of Object.entries(docsDict)) {
+        //             if (value.search(searchText) !== -1) {
+        //                 console.log("found item");
+        //                 var li = document.createElement("li");
+        //                 var section = document.createElement("section");
+        //                 section.className = "blog-content";
+        //                 var img = document.createElement("img");
+        //                 img.src = value;
+        //                 img.onclick = function() {showimage(value);};
+        //                 img.className = "img-responsive";
+        //                 var figure = document.createElement("figure");
+        //                 var button = document.createElement("button");
+        //                 button.className = "image-button";
+        //                 button.innerHTML = "Get Price";
+        //                 button.onclick = function() {
+        //                                         sendMessage(key + " Switch/Sensor");
+        //                                         onClickButton(key, value);
+        //                                     };
+        //                 var button2 = document.createElement("button");
+        //                 button2.className = "image-button2";
+        //                 button2.innerHTML = "Add to Cart";
+        //                 button2.onclick = function() {
+        //                                             addToCart(key, 5000);
+        //                                             onClickButton(key, value);
+        //                 };
+        //                 // add button around link
+        //                 var linkButton = document.createElement("button");
+        //                 linkButton.className = "image-link"
+        //                 var imgLink = document.createElement("i");
+        //                 imgLink.className = "material-icons";
+        //                 imgLink.innerHTML = "&#xe80d;";
+        //                 linkButton.onclick = function() {navigator.share({
+        //                                                     title: 'Shree Balaji Spareparts Kotkapura',
+        //                                                     text: key,
+        //                                                     url: window.location.href + "#" + encodeURIComponent(key),
+        //                                                 })};
+        //                 linkButton.appendChild(imgLink);
+        //                 figure.id = encodeURIComponent(key);
+        //                 figure.appendChild(linkButton);
+        //                 figure.appendChild(button);
+        //                 //figure.appendChild(button2);
+        //                 figure.appendChild(img);
+        //                 var article = document.createElement("article");
+        //                 article.innerHTML = key.toUpperCase();
+        //                 section.appendChild(figure);
+        //                 section.appendChild(article);
+        //                 li.appendChild(section);
+        //                 document.getElementById("grid").appendChild(li);
+        //             }
+        //             document.getElementById("grid").style.height = 'auto';
+        //         }
+        //     } else {
+        //         removeContent();
+        //         addContent();
+        //     }
+        // }
 
-        function clearText() {
-            document.getElementById("search-text").value = "";
-            removeContent();
-            addContent();
-        }
+        // function clearText() {
+        //     document.getElementById("search-text").value = "";
+        //     removeContent();
+        //     addContent();
+        // }
 
-        function showimage(src) {
-            var model = document.getElementById("myModal");
-            var modelimg = document.getElementById("img01");
-            model.style.display = "block";
-            modelimg.src = src;
-            console.log(`"background-image","url('${src}')"` + src);
-            model.addEventListener("dblclick", function() { model.style.display = "none"; });
-            var span = document.getElementsByClassName("close")[0];
-            span.onclick = function() {
-                model.style.display = "none";
-            }
-        }
+        // function showimage(src) {
+        //     var model = document.getElementById("myModal");
+        //     var modelimg = document.getElementById("img01");
+        //     model.style.display = "block";
+        //     modelimg.src = src;
+        //     console.log(`"background-image","url('${src}')"` + src);
+        //     model.addEventListener("dblclick", function() { model.style.display = "none"; });
+        //     var span = document.getElementsByClassName("close")[0];
+        //     span.onclick = function() {
+        //         model.style.display = "none";
+        //     }
+        // }
 
-        function sendMessage(value) {
-            window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
-        }
+        // function sendMessage(value) {
+        //     window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
+        // }
 
-        function onClickButton(buttonName, location) {
+        // function onClickButton(buttonName, location) {
     
-            const data = { "buttonName" : buttonName  , "location" : location};
+        //     const data = { "buttonName" : buttonName  , "location" : location};
             
-            fetch('https://app.shreebalajispareparts.com/clicks', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
-                body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
-            }).then(response => response.json())
-            .then(data => console.log(data))
-        }
+        //     fetch('https://app.shreebalajispareparts.com/clicks', {
+        //         method: 'POST',
+        //         headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
+        //         body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
+        //     }).then(response => response.json())
+        //     .then(data => console.log(data))
+        // }
 
-            displayDocuments(docsDict);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            if(error){
-                var images = {
-                    "I-20 Ambient Sensor": "images/sensor/ambient_sensor_I20.jpg",
-                    "Direction Motor MHawk": "images/sensor/direction_motor_mhawk.jpg",
-                    "Bolero AC Switch": "images/sensor/switch_ac_bolero.jpg",
-                    "Bolero HP": "images/sensor/switch_bolero.jpg",
-                    "Ford HP": "images/sensor/switch_ford.jpg",
-                    "I-20/ Verna HP": "images/sensor/switch_I20_verna.jpg",
-                    "Indica Vista HP": "images/sensor/switch_indica_vista.jpg",
-                    "Innova HP": "images/sensor/switch_innova.jpg",
-                    "Maruti AC Switch": "images/sensor/switch_maruti.jpg",
-                    "Scoda T2 Switch": "images/sensor/switch_scoda_t2.jpg",
-                    "Scoda Switch": "images/sensor/switch_scoda.jpg",
-                    "Tavera Switch": "images/sensor/switch_tavera.jpg",
-                    "Zen Switch": "images/sensor/switch_zen.jpg",
-                    "Alto Thermostat": "images/sensor/thermostat_alto.jpg",
-                    "Creta Thermostat": "images/sensor/thermostat_creta.jpg",
-                    "I20 Thermostat": "images/sensor/thermostat_I20.jpg",
-                    "I20 Elite/ Verna Flutec Thermostat": "images/sensor/thermostat_I20elite_verna_flutec.jpg",
-                    "MHawk Thermostat": "images/sensor/thermostat_mhawk.jpg",
-                    "Universal Thermostat": "images/sensor/thermostat_universal.jpg",
-                    }
-                    function addContent() {
+        //     displayDocuments(docsDict);
+        // })
+        // .catch(error => {
+        //     console.error('Error:', error);
+        //     if(error){
+        var images = {
+            "I-20 Ambient Sensor": "images/sensor/ambient_sensor_I20.jpg",
+            "Direction Motor MHawk": "images/sensor/direction_motor_mhawk.jpg",
+            "Bolero AC Switch": "images/sensor/switch_ac_bolero.jpg",
+            "Bolero HP": "images/sensor/switch_bolero.jpg",
+            "Ford HP": "images/sensor/switch_ford.jpg",
+            "I-20/ Verna HP": "images/sensor/switch_I20_verna.jpg",
+            "Indica Vista HP": "images/sensor/switch_indica_vista.jpg",
+            "Innova HP": "images/sensor/switch_innova.jpg",
+            "Maruti AC Switch": "images/sensor/switch_maruti.jpg",
+            "Scoda T2 Switch": "images/sensor/switch_scoda_t2.jpg",
+            "Scoda Switch": "images/sensor/switch_scoda.jpg",
+            "Tavera Switch": "images/sensor/switch_tavera.jpg",
+            "Zen Switch": "images/sensor/switch_zen.jpg",
+            "Alto Thermostat": "images/sensor/thermostat_alto.jpg",
+            "Creta Thermostat": "images/sensor/thermostat_creta.jpg",
+            "I20 Thermostat": "images/sensor/thermostat_I20.jpg",
+            "I20 Elite/ Verna Flutec Thermostat": "images/sensor/thermostat_I20elite_verna_flutec.jpg",
+            "MHawk Thermostat": "images/sensor/thermostat_mhawk.jpg",
+            "Universal Thermostat": "images/sensor/thermostat_universal.jpg",
+            }
+          function addContent() {
             for (const [key, value] of Object.entries(images)) {
                 var li = document.createElement("li");
                 var section = document.createElement("section");
@@ -603,7 +603,7 @@
                 button.innerHTML = "Get Price";
                 button.onclick = function() {
                                                 sendMessage(key + " Switch/Sensor");
-                                                onClickButton("Switch/Sensor_"+key,value);
+                                                // onClickButton("Switch/Sensor_"+key,value);
                                             };
                 var button2 = document.createElement("button");
                 button2.className = "image-button2";
@@ -734,25 +734,25 @@
         function sendMessage(value) {
             window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
         }
-            }
-        });
+        //     }
+        // });
 
         function displayDocuments(docsDict) {
             // Display the documents in the DOM here
             console.log(docsDict); // for example, log them to the console
         }
 
-        function onClickButton(buttonName, location) {
+        // function onClickButton(buttonName, location) {
             
-            const data = { "buttonName" : buttonName  , "location" : location};
+        //     const data = { "buttonName" : buttonName  , "location" : location};
             
-            fetch('http://localhost:5000/clicks', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
-                body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
-            }).then(response => response.json())
-            .then(data => console.log(data))
-        }
+        //     fetch('http://localhost:5000/clicks', {
+        //         method: 'POST',
+        //         headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
+        //         body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
+        //     }).then(response => response.json())
+        //     .then(data => console.log(data))
+        // }
 
         // var images = {
         //             "I-20 Ambient Sensor": "images/sensor/ambient_sensor_I20.jpg",
