@@ -117,7 +117,7 @@ html {
 	position: absolute;
 	padding: 5px;
 	z-index: 2;
-	margin: 10px;
+	margin: 12px;
 	border-radius: 8px;
 	border-color: lightgray;
 }
@@ -130,7 +130,11 @@ html {
 	border-radius: 30px;
 	height: 40px;
 	border-color: lightgray;
-	margin: 5px;
+	margin: 10px;
+}
+
+.img-responsive {
+  border-radius: 10px;
 }
 
 *, *:before, *:after {
