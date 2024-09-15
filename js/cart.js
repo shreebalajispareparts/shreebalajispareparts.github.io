@@ -92,7 +92,7 @@
                 
 //                 var data = {
 //                   "order_id": "224-447",
-//                   "order_date": "2023-07-24 11:11",
+//                   "order_date": "2024-07-24 11:11",
 //                   "pickup_location": "Shreebalajispareparts",
 //                   "channel_id": "",
 //                   "comment": "Reseller: M/s Goku",
@@ -355,7 +355,7 @@ function generate_paymentDataRequest(total_price) {
             
             var data = {
               "order_id": "224-447",
-              "order_date": "2023-07-24 11:11",
+              "order_date": "2024-07-24 11:11",
               "pickup_location": "Shreebalajispareparts",
               "channel_id": "",
               "comment": "Reseller: M/s Goku",
