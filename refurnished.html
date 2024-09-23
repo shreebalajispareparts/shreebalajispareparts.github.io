@@ -10,9 +10,9 @@
 
         <!-- Description, Keywords and Author -->
 
-        <meta name="description" content="Find rooftop electric AC units for big trucks, tempo travellers, buses, single cabins, JCBs, tractors, and more. Available in 12V and 24V options, these electric ACs provide efficient cooling solutions for commercial vehicles. Explore high-performance electric AC systems with reliable delivery across India.">
+        <meta name="description" content="Discover high-performance compressors designed for guaranteed extra cooling in vehicles like I-20, Creta, Verna, I-10, Corolla, Beat, Duster, Polo, Scoda Laura, Vento, and more. Choose from diesel and petrol compressors for enhanced cooling efficiency in popular car models such as Etios, Sunny, Terreno, and Venue. Keep your car cool with our reliable and custom compressors for various makes and models.">
 
-        <meta name="author" content="Shree Balaji Spareparts">
+        <meta name="author" content="SHREE BALAJI SPAREPARTS">
 
         
 
@@ -169,6 +169,8 @@
 
                                 <li><a href="about.html" title="About">About</a></li>
 
+                                <li><a href="electric-ac.html" title="Electric AC">Electric AC</a></li>
+
                                 <li><a href="compressor.html" title="Compressors">Compressors</a></li>
 
                                 <li><a href="refurnished.html" title="R Compressors">R. Compressors</a></li>
@@ -217,13 +219,15 @@
 
                     <div class="row" style="margin: auto;">
 
+                    
+
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-12 ">
 
                             <article role="pge-title-content" class="blog-header padding-bottom">
 
                                 <header>
 
-                                    <h2><span class="font-size-50">Electric AC</span></h2>
+                                    <h2><span class="font-size-50">Extra Cooling</span></h2>
 
                                 </header>
 
@@ -269,8 +273,6 @@
                             <li><a href="index.html" title="Home">Home</a></li>
         
                             <li><a href="about.html" title="About">About</a></li>
-
-                            <li><a href="electric-ac.html" title="Electric AC">Electric AC</a></li>
         
                             <li><a href="compressor.html" title="Compressors">Compressors</a></li>
         
@@ -291,7 +293,7 @@
         
                         <ul>
                             
-                            <li><a href="heater.html" title="Heater">Heater</a></li>
+                            <!-- <li><a href="heater.html" title="Heater">Heater</a></li> -->
         
                             <li><a href="cabin-filter.html" title="Cabin Filter">Cabin Filter</a></li>
         
@@ -301,7 +303,7 @@
         
                             <li><a href="sensor.html" title="Switch/ Sensor">Switch/ Sensor</a></li>
         
-                            <!-- <li><a href="misc.html" title="Misc">Misc</a></li> -->
+                            <li><a href="misc.html" title="Misc">Misc</a></li>
                             
                             <li><a href="expansion-valve.html" title="Expansion Valve">Expansion Valve</a></li>
 
@@ -339,7 +341,6 @@
                     <p class="copy-right">&copy; 2024 Shree Balaji Spareparts.. All rights Reserved</p>
 
                 </footer>
-
                 <div style="height: 8vh; position: fixed; bottom: 0;padding: 5px; width: 100%;">
                     <div class="container full-size" style="display: flex;">
                         <div class="call-box">
@@ -361,10 +362,10 @@
             <img class="modal-content" id="img01" style="width: 150%;">
             <div id="caption"></div>
         </div>
-
-        <script src="js/cart.js" type="text/javascript"></script>
         
-        <!-- <script src="js_routing/misc.js" type="text/javascript"></script> -->
+        <script src="js/cart.js" type="text/javascript"></script>
+
+        <!-- <script src="js_routing/heater.js" type="text/javascript"></script> -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
@@ -397,15 +398,207 @@
     </body>
 
     <script>
-        var images = {
-                      "Rooftop electric ac 12/24v front (big truck, tempo traveller, bus)": "images/electric-ac/big_truck_1.jpeg",
-                      "Rooftop electric ac 12/24v inside (big truck, tempo traveller, bus)": "images/electric-ac/big_truck_2.jpeg",
-                      "Rooftop electric ac 12/24v top (big truck, tempo traveller, bus)": "images/electric-ac/big_truck_3.jpeg",
-                      "Rooftop electric ac 12/24v power (big truck, tempo traveller, bus)": "images/electric-ac/big_truck_4.jpeg",
-                      "Rooftop electric ac 12/24v front (single cabin, JCB, Tactor, hydra, poclain, trucks)": "images/electric-ac/single_cabin_1.jpeg",
-                      "Rooftop electric ac 12/24v inside (single cabin, JCB, Tactor, hydra, poclain, trucks)": "images/electric-ac/single_cabin_2.jpeg",
-                      }
+        let docsDict; // declare a variable to store the key-value dictionary
 
+
+            // fetch('https://dapp.shreebalajispareparts.com/heaters_sorted')
+            // .then(response => response.json())
+        //     .then(docs => {
+        //         docsDict = Object.fromEntries(docs.map(({ buttonName, location }) => [buttonName, location]));
+        
+        // function addContent() {
+        //     for (const [key, value] of Object.entries(docsDict)) {
+        //         var li = document.createElement("li");
+        //         var section = document.createElement("section");
+        //         section.className = "blog-content";
+        //         var img = document.createElement("img");
+        //         img.src = value;
+        //         img.onclick = function() {showimage(value);};
+        //         img.className = "img-responsive";
+        //         var figure = document.createElement("figure");
+        //         var button = document.createElement("button");
+        //         button.className = "image-button";
+        //         button.innerHTML = "Get Price";
+        //         button.onclick = function() {
+        //                                         sendMessage(key + " Heater");
+        //                                         onClickButton(key, value);
+        //                                     };
+        //         var button2 = document.createElement("button");
+        //         button2.className = "image-button2";
+        //         button2.innerHTML = "Add to Cart";
+        //         button2.onclick = function() {
+        //                                     addToCart(key, 5000);
+        //                                     onClickButton(key, value);
+        //         };
+        //         // add button around link
+        //         var linkButton = document.createElement("button");
+        //         linkButton.className = "image-link"
+        //         var imgLink = document.createElement("i");
+        //         imgLink.className = "material-icons";
+        //         imgLink.innerHTML = "&#xe80d;";
+        //         linkButton.onclick = function() {navigator.share({
+        //                                             title: 'Shree Balaji Spareparts Kotkapura',
+        //                                             text: key,
+        //                                             url: window.location.href + "#" + encodeURIComponent(key),
+        //                                         })};
+        //         linkButton.appendChild(imgLink);
+        //         figure.id = encodeURIComponent(key);
+        //         figure.appendChild(linkButton);
+        //         figure.appendChild(button);
+        //         //figure.appendChild(button2);
+        //         figure.appendChild(img);
+        //         var article = document.createElement("article");
+        //         article.innerHTML = key.toUpperCase() + " Heater";
+        //         section.appendChild(figure);
+        //         section.appendChild(article);
+        //         li.appendChild(section);
+        //         document.getElementById("grid").appendChild(li);
+        //     }
+        //     document.getElementById("grid").style.height = "auto";
+        // }
+        // addContent();
+        
+        // const input = document.querySelector('input');
+        // input.addEventListener('input', searchText)
+
+        // function removeContent() {
+        //     var grid = document.getElementById("grid");
+        //     while(grid.firstChild) {
+        //         console.log("removed", grid.childNodes[0]);
+        //         grid.removeChild(grid.firstChild);
+        //     }
+        //     grid.style.height = 'auto';
+        //     console.log("after removal", grid);
+        // }
+
+        // function searchText(e) {
+        //     if (e.target.value !== '') {
+        //         // remove inner content
+        //         removeContent();
+        //         const searchText = e.target.value.toLowerCase();
+        //         for (const [key, value] of Object.entries(docsDict)) {
+        //             if (value.search(searchText) !== -1) {
+        //                 console.log("found item");
+        //                 var li = document.createElement("li");
+        //                 var section = document.createElement("section");
+        //                 section.className = "blog-content";
+        //                 var img = document.createElement("img");
+        //                 img.src = value;
+        //                 img.onclick = function() {showimage(value);};
+        //                 img.className = "img-responsive";
+        //                 var figure = document.createElement("figure");
+        //                 var button = document.createElement("button");
+        //                 button.className = "image-button";
+        //                 button.innerHTML = "Get Price";
+        //                 button.onclick = function() {
+        //                                         sendMessage(key + " Heater");
+        //                                         onClickButton(key, value);
+        //                                     };
+        //                 var button2 = document.createElement("button");
+        //                 button2.className = "image-button2";
+        //                 button2.innerHTML = "Add to Cart";
+        //                 button2.onclick = function() {
+        //                                             addToCart(key, 5000);
+        //                                             onClickButton(key, value);
+        //                 };
+        //                 // add button around link
+        //                 var linkButton = document.createElement("button");
+        //                 linkButton.className = "image-link"
+        //                 var imgLink = document.createElement("i");
+        //                 imgLink.className = "material-icons";
+        //                 imgLink.innerHTML = "&#xe80d;";
+        //                 linkButton.onclick = function() {navigator.share({
+        //                                                     title: 'Shree Balaji Spareparts Kotkapura',
+        //                                                     text: key,
+        //                                                     url: window.location.href + "#" + encodeURIComponent(key),
+        //                                                 })};
+        //                 linkButton.appendChild(imgLink);
+        //                 figure.id = encodeURIComponent(key);
+        //                 figure.appendChild(linkButton);
+        //                 figure.appendChild(button);
+        //                 //figure.appendChild(button2);
+        //                 figure.appendChild(img);
+        //                 var article = document.createElement("article");
+        //                 article.innerHTML = key.toUpperCase() + " Heater";
+        //                 section.appendChild(figure);
+        //                 section.appendChild(article);
+        //                 li.appendChild(section);
+        //                 document.getElementById("grid").appendChild(li);
+        //             }
+        //             document.getElementById("grid").style.height = 'auto';
+        //         }
+        //     } else {
+        //         removeContent();
+        //         addContent();
+        //     }
+        // }
+
+        // function clearText() {
+        //     document.getElementById("search-text").value = "";
+        //     removeContent();
+        //     addContent();
+        // }
+
+        // function showimage(src) {
+        //     var model = document.getElementById("myModal");
+        //     var modelimg = document.getElementById("img01");
+        //     model.style.display = "block";
+        //     modelimg.src = src;
+        //     console.log(`"background-image","url('${src}')"` + src);
+        //     model.addEventListener("dblclick", function() { model.style.display = "none"; });
+        //     var span = document.getElementsByClassName("close")[0];
+        //     span.onclick = function() {
+        //         model.style.display = "none";
+        //     }
+        // }
+
+        // function sendMessage(value) {
+        //     window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
+        // }
+
+        // function onClickButton(buttonName, location) {
+    
+        //     const data = { "buttonName" : buttonName  , "location" : location};
+            
+        //     fetch('https://app.shreebalajispareparts.com/clicks', {
+        //         method: 'POST',
+        //         headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
+        //         body: JSON.stringify({ "buttonName" : buttonName , "location" : location })
+        //     }).then(response => response.json())
+        //     .then(data => console.log(data))
+        // }
+
+        
+        //     displayDocuments(docsDict);
+        // })
+        // .catch(error => {
+        //     console.error('Error:', error);
+        //     if(error){
+        var images = {
+            "I-20 Elite Diesel": "images/custom_compressors/I20 Elite dsl.jpeg",
+            "I-20 Elite Petrol": "images/custom_compressors/I20 elite ptl.jpeg",
+            "I-20 Diesel": "images/custom_compressors/I20 dsl.jpeg",
+            "I-20 Petrol": "images/custom_compressors/I20 ptl.jpeg",
+            "Creta Diesel": "images/custom_compressors/Creta dsl.jpeg",
+            "Verna Flutech Diesel": "images/custom_compressors/Verna flutec dsl.jpeg",
+            "I-10 Grand Diesel": "images/custom_compressors/I10 grand dsl.jpeg",
+            "I-10 Grand Petrol": "images/custom_compressors/I10 grand ptl.jpeg",
+            "I-10 Petrol": "images/custom_compressors/I10 ptl.jpeg",
+            "Corolla Diesel": "images/custom_compressors/Corolla dsl.jpeg",
+            "Beat Diesel": "images/custom_compressors/Beat dsl.jpeg",
+            "Duster": "images/custom_compressors/Duster.jpeg",
+            "Etios Diesel": "images/custom_compressors/Etios dsl.jpeg",
+            "Logan": "images/custom_compressors/Logan.jpeg",
+            "Polo": "images/custom_compressors/Polo.jpeg",
+            "Sunny Micra": "images/custom_compressors/Sunny_Micra.jpeg",
+            "Scoda Laura": "images/custom_compressors/Skoda laura.jpeg",
+            "Scoda Fabia": "images/custom_compressors/Skoda fabia.jpeg",
+            "Vento": "images/custom_compressors/Vento.jpeg",
+            "Terreno": "images/custom_compressors/Terreno.jpeg",
+            "Venue": "images/custom_compressors/Venue dsl.jpeg",
+            "Verito": "images/custom_compressors/Verito.jpeg",
+            "Scala": "images/custom_compressors/Scala.jpeg",
+            }
         function addContent() {
             for (const [key, value] of Object.entries(images)) {
                 var li = document.createElement("li");
@@ -419,9 +612,8 @@
                 var button = document.createElement("button");
                 button.className = "image-button";
                 button.innerHTML = "Get Price";
-                button.onclick = function() {   
-                                                sendMessage(key);
-                                                // onClickButton(key);
+                button.onclick = function() {
+                                                sendMessage(key + " Compressor");
                                             };
                 var button2 = document.createElement("button");
                 button2.className = "image-button2";
@@ -447,7 +639,7 @@
                 //figure.appendChild(button2);
                 figure.appendChild(img);
                 var article = document.createElement("article");
-                article.innerHTML = key.toUpperCase();
+                article.innerHTML = key.toUpperCase() + " Compressor";
                 section.appendChild(figure);
                 section.appendChild(article);
                 li.appendChild(section);
@@ -489,9 +681,8 @@
                         var button = document.createElement("button");
                         button.className = "image-button";
                         button.innerHTML = "Get Price";
-                        button.onclick = function() {   
-                                                sendMessage(key);
-                                                // onClickButton(key);
+                        button.onclick = function() {
+                                                sendMessage(key + " Compressor");
                                             };
                         var button2 = document.createElement("button");
                         button2.className = "image-button2";
@@ -517,7 +708,7 @@
                         //figure.appendChild(button2);
                         figure.appendChild(img);
                         var article = document.createElement("article");
-                        article.innerHTML = key.toUpperCase();
+                        article.innerHTML = key.toUpperCase() + " Compressor";
                         section.appendChild(figure);
                         section.appendChild(article);
                         li.appendChild(section);
@@ -553,19 +744,31 @@
         function sendMessage(value) {
             window.open("https://wa.me/916239444069?text=I%20want%20to%20know%20price%20for%20"+ encodeURIComponent(value));
         }
+        //     }
+        // });
 
-        // function onClickButton(buttonName) {
-    
-        //     const data = { "buttonName" : buttonName  };
-            
-        //     fetch('https://app.shreebalajispareparts.com/clicks', {
-        //         method: 'POST',
-        //         headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
-        //         body: JSON.stringify({ "buttonName" : buttonName  })
-        //     }).then(response => response.json())
-        //     .then(data => console.log(data))
-        // }
+        function displayDocuments(docsDict) {
+            // Display the documents in the DOM here
+            console.log(docsDict); // for example, log them to the console
+        }
 
+        // var images = {
+        //             "Swift": "images/Compressor/Compressor_swift.jpg",
+        //             "Swift New Model": "images/Compressor/Compressor_swift_new_model.jpg",
+        //             "Universal": "images/Compressor/Compressor_universal.jpg",
+        //             "Alto/ Wagnor": "images/Compressor/Compressor_alto_wagnor.jpg",
+        //             "Alto K-10": "images/Compressor/Compressor_alto_k10.jpg",
+        //             "Bolero Old Model": "images/Compressor/Compressor_bolero_old_model.jpg",
+        //             "Bolero New Model": "images/Compressor/Compressor_bolero_new_model.jpg",
+        //             "I-20 Elite": "images/Compressor/Compressor_i20_elite.jpg",
+        //             "I-20": "images/Compressor/Compressor_i20.jpg",
+        //             "Verna Flutec": "images/Compressor/Compressor_verna_flutec.jpg",
+        //             "Innova/ Fortuner": "images/Compressor/Compressor_innova_fortuner.jpg",
+        //             "Ritz": "images/Compressor/Compressor_ritz.jpg",
+        //             "Wagnor K-10": "images/Compressor/Compressor_wagnor_k10.jpg",
+        //             }
+
+        
     </script>
 
 </html>
